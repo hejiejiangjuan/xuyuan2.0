@@ -1,0 +1,41 @@
+<!--pages/me-feedback/me-feedback.wxml-->
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+  <view slot="content">问题反馈</view>
+</cu-custom>
+<view class='feedPage'>
+  <view class='feedback-t fontStylexbg'>选择类型:</view>
+  <view class='check-btn fontStylexl'>
+    <view class="{{chekindex==index?'check-list1':'check-list2'}} check-list" wx:for='{{checkData}}' wx:key='index' data-index='{{index}}' bindtap='checke'>{{item.typeName}}</view>
+  </view>
+  <view class='feedback-t fontStylexbg'>反馈内容:</view>
+  <form>
+    <view class="cu-form-group texta ">
+      <textarea hidden='{{textaStatus}}' style='height:220rpx;' maxlength="30" disabled="{{modalName!=null}}" bindinput="getContent" placeholder="输入内容" value='{{content}}'></textarea>
+    </view>
+  </form>
+  <view class="cu-bar bg-white margin-top">
+    <view class="action">
+      图片上传
+    </view>
+
+    <view class="action">
+      {{imgList.length}}/4
+    </view>
+  </view>
+  <view class="cu-form-group">
+    <view class="grid col-4 grid-square flex-sub">
+      <view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
+        <image src='{{imgList[index]}}' mode='aspectFill'></image>
+        <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+          <text class="cuIcon-close"></text>
+        </view>
+      </view>
+      <view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<4}}">
+        <text class="cuIcon-cameraadd"></text>
+      </view>
+    </view>
+  </view>
+  <view class='subBtn-box'>
+    <view class='subBtn' bindtap='addFeedback'>提交</view>
+  </view>
+</view>

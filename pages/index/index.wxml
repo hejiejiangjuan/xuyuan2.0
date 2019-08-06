@@ -1,0 +1,250 @@
+<modal show="{{showModal}}" height='60%' bind:cofom="manaGement">
+</modal>
+<view class='custom_color'>
+  <cu-custom>
+    <view slot="content">星海</view>
+  </cu-custom>
+</view>
+<view class='kong'></view>
+<view class='wishPage'>
+  <view class='banner'>
+    <image class='banner-img' src='../../imgs/pageImgs/home_bg.png'></image>
+    <view class=' banner-con'>
+      <view class='barrage'>
+        <swiper class="mySwiper" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular vertical='true'>
+          <block wx:for='{{fistData}}' wx:key='index'>
+            <swiper-item>
+              <view class='uesrWish'>
+                <view class='userImg'>
+                  <image src='{{item.avatarUrl}}'></image>
+                </view>
+                <view class='wishCon'>{{item.titleName}}</view>
+              </view>
+            </swiper-item>
+          </block>
+        </swiper>
+      </view>
+      <view class='banner-foot'>
+        <view class='foot-text'>
+          <text>已有</text>
+          <text>{{fistDataCount}}</text>人许下心愿</view>
+        <view class='foot-btn' bindtap='thefirst'>我要上首页</view>
+      </view>
+    </view>
+  </view>
+
+  <view class='myScroll'>
+    <scroll-view scroll-x class=" nav">
+      <view class="cufill-box">
+        <view class="flex text-center cufill">
+          <view class="cu-item flex-sub {{index==TabCur?'text-black':''}}" wx:for="{{tabs}}" wx:key bindtap="tabSelect" data-id="{{index}}">
+            {{item.text}}
+             <view class="myLine" wx:if='{{index==activeIndex}}'></view>
+          </view>
+          
+        </view>
+      </view>
+
+    </scroll-view>
+  </view>
+</view>
+
+
+<view class='whisContent' wx:for='{{list}}' wx:key='index'>
+  <view class='userInfo'>
+    <view class='userInfo-con'>
+      <view class='userInfo-img'>
+        <view class="cu-avatar round " style="background-image:url({{item.imgAddr}});"></view>
+      </view>
+
+      <view class='userInfo-name'>
+
+        <view class='userInfoName'>
+          <view class='myName'>
+            <view class='nickname'>{{item.nickName}}</view>
+            <!-- <view class='level'>心愿达人</view> -->
+            <view class='medal' wx:if='{{item.addr}}'>
+              <image src='{{item.addr}}'></image>
+            </view>
+            <view>
+              <view class='myIcon'>
+                <!-- <image src='../../imgs/icon/hot@2x.png'></image> -->
+                <text class='cuIcon-hotfill hotCol'></text>
+              </view>
+            </view>
+          </view>
+          <view class='city'>
+            <!-- {{item.city!=null ? item.city : item.province}} -->
+            <text class="cuIcon-locationfill lg text-gray"></text>
+            <text>{{item.city!=null ? item.city : item.province}}</text>
+          </view>
+          <view>
+          </view>
+        </view>
+
+        <view class='fromCtity'>
+          <view class='from-time'>{{item.createDateStr}}</view>
+          <view class='from-city' wx:if='{{item.activityName}}'>
+            来自
+            <text>{{item.activityName}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 愿望列表 -->
+    <view class='wishList'>
+      <view class='wishContent' wx:for='{{item.wishListStr}}' wx:for-item='wishList' wx:key='wishList'>
+        <view class='myIcon wishIcon'>
+          <image src='{{fileServer+wishList.icon}}'></image>
+        </view>
+        <view class='wish-cont'>{{wishList.wishContent}}</view>
+      </view>
+    </view>
+  </view>
+  <view class='xuxian'></view>
+  <!-- 背后的故事 -->
+  <view class='storyBehind'>
+    <view class='storyTitle'>
+      <view class='myIcon'>
+        <text class='cuIcon-text stryCol'></text>
+      </view>
+      <view class='story-title'>背后的故事</view>
+    </view>
+    <view class="{{actvie==item.id?'storyCon2':'storyCon'}}">
+      {{item.story}}
+    </view>
+    <view class='storyFoot'>
+
+      <view class="closeBtn {{item.story.length > 40 ? '' : 'hideBtn'}}" bindtap='closBtn' data-id='{{item.id}}' wx:if="{{actvie==item.id}}">
+        <text>收起全文</text>
+        <view class='upIcon'>
+          <image src='../../imgs/icon/up@2x.png'></image>
+        </view>
+      </view>
+
+      <view class="openBtn {{item.story.length > 40 ? '' : 'hideBtn'}}" bindtap='openBtn' data-id='{{item.id}}' wx:else>
+        <text>展开全文</text>
+        <view class='upIcon'>
+          <image src='../../imgs/icon/down@2x.png'></image>
+        </view>
+      </view>
+
+
+      <view class='giveLike' bindtap='dianZanzhichi' data-idx="{{index}}" wx:if='{{item.isSurport==0}}'>
+        <view class='LikeIcon'>
+          <image src='../../imgs/icon/light@2x.png'></image>
+        </view>
+        <text>点亮</text>
+      </view>
+      <view class='giveLike2' bindtap='dianZanzhichi' data-idx="{{index}}" wx:if='{{item.isSurport==1}}'>
+        <view class='LikeIcon'>
+          <image src='../../imgs/icon/light_hover.png'></image>
+        </view>
+        <text>{{item.supportNum}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 插入的活动部分 -->
+<!-- <view class='whisContent'>
+  <view class='userInfo'>
+    <view class='userInfo-con'>
+      <view class='userInfo-img'>
+        <view class="cu-avatar lg round " style="background-image:url({{mySrc}});"></view>
+      </view>
+      <view class='userInfo-name'>
+        <view class='userInfoName'>
+          <view class='myName'>
+            <view class='nickname'>万达集团</view>
+          </view>
+          <view class='city'>
+            <text class="cuIcon-close lg text-gray"></text>
+          </view>
+          <view>
+          </view>
+        </view>
+        <view class='fromCtity'>
+          <view class='from-time'>3分钟前</view>
+        </view>
+      </view>
+    </view>
+
+       
+    <view class='wishList'>
+      <view class='detailbannr'>
+        <image src='http://img4.imgtn.bdimg.com/it/u=2185330698,469649926&fm=26&gp=0.jpg'></image>
+      </view>
+      <view class='detail-con-title1 fontStylexbgg'>万达浪漫七夕节大胆试爱，全城参与你许愿我送礼，惊喜连连~~</view>
+      <view class='detail-con-tiem'>
+        <text>7月12日</text>
+        <text>12:00</text>
+        <text>自动开奖</text>
+      </view>
+      <view class='detali-type'>
+        <view class='detali-type-list'>
+          <view class='detali-type-list-c'>#旅行#</view>
+          <view class='detali-type-list-c'>#旅行#</view>
+          <view class='detali-type-list-c'>#旅行卡上#</view>
+        </view>
+        <view class='detali-type-btn' bindtap='activeJion'>立即参与</view>
+      </view>
+
+    </view>
+  </view>
+  <view class='xuxian'></view>
+     
+  <view class='storyBehind'>
+    <view class='detali-title fontStylexl'>
+      <text>已有</text>
+      <text>35</text>
+      <text>人参与许愿</text>
+    </view>
+    <view class='detalie-userImgs'>
+      <view class="cu-avatar-group">
+        <view class="cu-avatar round" wx:for="{{4}}" wx:key style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big1000{{index+1}}.jpg);"></view>
+      </view>
+    </view>
+  </view>
+</view> -->
+
+<view wx:if='{{!isRefreshing}}' class="weui-loadmore">
+  <view wx:if='{{isLoadingMoreData}}'>
+    <view class="weui-loading"></view>
+    <view class="weui-loadmore-tips">正在加载更多...</view>
+  </view>
+  <view wx:elif='{{!isLoadingMoreData&&hasMoreData}}'>
+    <view class="weui-loadmore-tips" bindtap='onReachBottom'>上拉加载更多</view>
+  </view>
+  <view wx:elif='{{!hasMoreData}}'>
+    <view class="weui-loadmore-tips">没有更多内容啦</view>
+  </view>
+</view>
+
+
+<view class='footbtn'>
+  <view class='addbtnImg' bindtap='wishPage'>
+    <text class="cuIcon-add rightIcon"></text>
+  </view>
+</view>
+<view class="cu-modal {{modalName=='Modal'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">提示</view>
+      <view class="action" bindtap="hideModal">
+        <!-- <text class="cuIcon-close text-red"></text> -->
+      </view>
+    </view>
+    <view class="padding-xl">
+      <text>iOS系统用户请转到安卓上首页</text>
+    </view>
+    <view class="cu-bar  justify-center">
+      <view class="action">
+        <!-- <button class="cu-btn line-green text-green" bindtap="hideModal">取消</button> -->
+        <button class="cu-btn line-pink margin-left" bindtap="hideModal">好的！</button>
+
+      </view>
+    </view>
+  </view>
+</view>

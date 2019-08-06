@@ -1,0 +1,131 @@
+/* pages/wishCard/wishCard.wxss */
+
+.wishCard-banner {
+  /* border: 1px solid black; */
+  padding: 60rpx 50rpx 20rpx 50rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.wishCard-banner-img {
+  /* border: 1px solid black; */
+  width: 100%;
+  height: 324rpx;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  background: linear-gradient(-90deg, rgba(78, 49, 215, 1), rgba(255, 60, 123, 1));
+}
+
+.wishCard-banner-img>image {
+  width: 624rpx;
+  height: 324rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.wishCard-banner-con {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cardNum {
+  color: white;
+  /* border: 1px solid white; */
+  padding-left: 48rpx;
+}
+.iputBtn{
+  display: flex;
+  justify-content: flex-end;
+}
+.cuBtn{
+  margin: 5rpx;
+}
+.myInputBtn{
+  /* border: 1px solid black; */
+  width: 100%;
+  padding: 0 50rpx;
+}
+.cuInputStyle{
+  background: whitesmoke;
+  width: 100%;
+  padding:3rpx 10rpx 10rpx 10rpx;
+  border-radius: 5px;
+}
+
+.cardNum>text:first-child {
+  font-size: 94rpx;
+  padding-right: 15rpx;
+}
+
+.cardDetail {
+  color: #fff;
+  /* border: 1px solid white; */
+  height: 150rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cardDetaillist {
+  font-size: 26rpx;
+  /* border: 1px solid white; */
+  background: rgba(0, 0, 0, 0.144);
+  padding: 8rpx 20rpx;
+  border-radius: 25px 0 0 25px;
+}
+
+.getCard {
+  padding: 30rpx 46rpx 50rpx 46rpx;
+  /* border: 1px solid black; */
+}
+
+.getCard-title {
+  /* border: 1px solid black; */
+  font-size: 36rpx;
+  font-family: PingFang-SC-Bold;
+  font-weight: bold;
+}
+
+.getCard-con {
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40rpx;
+}
+
+.getCard-con-title {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 36rpx;
+  font-family: PingFang-SC-Medium;
+  color: #666666;
+}
+.getCard-con-title>text{
+    padding-left: 20rpx;
+}
+
+
+.getCard-con-con{
+  font-size:26rx;
+font-family:PingFang-SC-Regular;
+color: #999999;
+padding-left: 48rpx;
+margin-top: 8rpx;
+}
+.gowish{
+  border: 1px solid #FF3C75;
+  padding: 10rpx 22rpx;
+  border-radius: 25px;
+  color: #FF3C75;
+}
+

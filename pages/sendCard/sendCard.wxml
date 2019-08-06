@@ -1,0 +1,55 @@
+<!--pages/sendCard/sendCard.wxml-->
+<modal show="{{showModal}}" height='60%' bind:cofom="manaGement"></modal>
+
+<!-- <view class='custom_color'>
+  <cu-custom >
+    <view slot="content">领取心愿卡</view>
+  </cu-custom>
+</view> -->
+<view class="backText" >
+  <view class="myContent backIcon" catchtap="backPage">
+    <text class="cuIcon-back" ></text>
+    <!-- <text>首页</text> -->
+  </view>
+  <view class="myContent"> 活动详情</view>
+</view>
+
+<view class='sendbanner'>
+  <view class='getbanner'>
+    <image src='/imgs/pageImgs/heart_bg_share.png'></image>
+    <view class='getbanner-con'>
+      <view>
+        <view class="cu-avatar round" style="background-image:url({{wishcardSendInfo.sendUserAvatar}});"></view>
+        <view class='username fontStylelg'>{{wishcardSendInfo.sendUserName}}</view>
+        <view class='send-num'>
+          <text>送你</text>
+          <text>{{wishcardSendInfo.changeNum}}</text>
+          <text>张心愿卡</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='sendBg'>
+    <view class='get-btn'>
+      <view class='subBtn-box'>
+        <view class='subBtn' bindtap='getWishcardFromSend' wx:if="{{wishcardSendInfo.status==0}}">立即领取</view>
+        <view class='subBtn2' bindtap='firstPage' wx:else>
+        你已领取心愿卡,
+        <text>逛逛首页</text>
+        <text class='cuIcon-right'></text>
+        </view>
+      </view>
+    </view>
+
+    <view class='directions'>
+      <view class='my-directions'> 
+        <view class='my-cardDatlie-con-t my-directions-botton fontStylexbgg'>心愿卡使用说明</view>
+        <view class='my-directions-list fontStylexl'>1、参加某些活动时需要花费心愿卡</view>
+        <view class='my-directions-list fontStylexl'>2、许心愿时使用心愿卡，更容易被选中实现心愿</view>
+        <view class='my-directions-list fontStylexl'>3、许心愿到达一定数量时可领取心愿卡</view>
+        <view class='my-screaming'></view>
+      </view>
+    </view>
+  </view>
+
+</view>

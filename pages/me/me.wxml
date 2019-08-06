@@ -1,0 +1,178 @@
+<!--pages/Me/Me.wxml-->
+<cu-custom bgColor="bg-white">
+  <view class="title-content" slot="content">我的</view>
+</cu-custom>
+<view class='meHead-box'>
+  <view class='meHead'>
+    <view class='usernickname'>
+      <view class='nickname1'>{{nickName}}</view>
+      <view class='medal-box' bindtap='wishTalent'>
+
+        <view class='medalX' wx:if='{{medalAddr}}'>
+          <view class='medalIcon'>
+            <image src='{{medalAddr}}' wx:if='{{medalAddr}}'></image>
+          </view>
+          <view class='medalcon'>
+            <text>{{medalName}}</text>
+            <text class="cuIcon-right rightIcon"></text>
+          </view>
+        </view>
+        <view class='medal1' wx:else>
+          <view class='medalconNone'>
+            <text>{{medalName}}</text>
+            <text class="cuIcon-right rightIcon"></text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='userImg' bindtap="showModal" data-target="Modal">
+      <view class="cu-avatar xl round margin-right" style="background-image:url({{avatarUrl}});"></view>
+      <text class="cuIcon-right iconUser"></text>
+    </view>
+  </view>
+
+  <view class='meNav'>
+    <view class='meNavlist' bindtap='makeWish'>
+      <view class='meNav-num'>{{wishDetailCount}}</view>
+      <view class='meNav-title'>许下的心愿</view>
+    </view>
+    <view class='meNavlist' bindtap='activelved'>
+      <view class='meNav-num'>{{userJoinCount}}</view>
+      <view class='meNav-title'>参与的活动</view>
+    </view>
+    <view class='meNavlist' bindtap='impWish'>
+      <view class='meNav-num'>{{userImplCount}}</view>
+      <view class='meNav-title'>实现的心愿</view>
+    </view>
+    <view class='meNavlist' bindtap='initiateActive'>
+      <view class='meNav-num'>{{createActivityCount}}</view>
+      <view class='meNav-title'>发起的活动</view>
+    </view>
+  </view>
+
+  <view class='imgBtn'>
+    <view class='img-botton'>
+      <image src='../../imgs/pageImgs/heart_bg_1.png'></image>
+      <view class='car-content'>
+        <view class='car-num'>
+          <text>{{wishCardNum}}</text>
+          <text>张心愿卡</text>
+        </view>
+        <view class='myCar' bindtap='mywishCard'>
+          我的心愿卡
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='myMenu'>
+    <view class="cu-list menu">
+      <view class="cu-item " bindtap='message'>
+        <view class="content conIcon">
+          <text class="cuIcon-notice text-grey"></text>
+          <text class="text-black fontStylexbgg">消息通知</text>
+        </view>
+        <view class="cu-tag round bg-pink sm margin-right" wx:if='{{totalMsg>0}}'>{{totalMsg}}</view>
+        <text class="cuIcon-right text-grey"></text>
+      </view>
+
+      <view class="cu-item " bindtap='problems'>
+        <view class="content conIcon">
+          <text class="cuIcon-question text-grey"></text>
+          <text class="text-black fontStylexbgg">常见问题</text>
+        </view>
+        <text class="cuIcon-right text-grey"></text>
+      </view>
+
+      <view class="cu-item " bindtap='contact'>
+        <view class="content conIcon">
+          <text class="cuIcon-mark text-grey"></text>
+          <text class="text-black fontStylexbgg">联系我们</text>
+        </view>
+        <text class="cuIcon-right text-grey"></text>
+      </view>
+      <view class="cu-item " bindtap='aboutUs'>
+        <view class="content conIcon">
+          <text class="cuIcon-info text-grey"></text>
+          <text class="text-black fontStylexbgg">关于我们</text>
+        </view>
+        <text class="cuIcon-right text-grey"></text>
+      </view>
+      <view class="cu-item" bindtap='cooperation'>
+        <view class="content conIcon">
+          <text class="cuIcon-creative text-grey "></text>
+          <text class="text-black fontStylexbgg">商务合作</text>
+        </view>
+        <text class="cuIcon-right text-grey"></text>
+      </view>
+      <view class="cu-item " bindtap='feedback'>
+        <view class="content conIcon">
+          <text class="cuIcon-write text-grey "></text>
+          <text class="text-black fontStylexbgg">问题反馈</text>
+        </view>
+        <text class="cuIcon-right text-grey"></text>
+      </view>
+
+
+      <view class="cu-item " bindtap='chooseAddress' wx:if='{{addressStatus}}'>
+        <view class="content conIcon">
+          <text class="cuIcon-location lg text-gray"></text>
+          <text class="text-black fontStylexbgg">地址管理</text>
+        </view>
+        <text class="cuIcon-right text-grey"></text>
+      </view>
+
+    <view class="cu-item " bindtap='addressType' wx:else>
+        <view class="content conIcon">
+          <text class="cuIcon-location lg text-gray"></text>
+          <text class="text-black fontStylexbgg">地址管理</text>
+        </view>
+        <text class="cuIcon-right text-grey"></text>
+      </view>
+
+
+
+
+
+    </view>
+  </view>
+</view>
+
+<view class="cu-modal {{modalName=='Modal'?'show':''}} mymodal">
+  <view class="cu-dialog">
+    <view class="action deleIcon " bindtap="hideModal">
+      <text class="cuIcon-close text-grye"></text>
+    </view>
+    <view class="cu-bar  justify-end">
+      <view class="content wishTag-title">修改信息</view>
+    </view>
+    <view class="myInfo">
+
+      <view class='chooseImg'>
+        <view class='imgLogo'>
+          <form>
+
+            <view class="imgBox">
+              <view class="usrserImg" bindtap="ChooseImage">
+                <image wx:if='{{!imgList}}' src='{{imgList}}' mode='aspectFill'></image>
+                <image wx:else src='{{imgList}}' mode='aspectFill'></image>
+                <view class="myadd" wx:if="{{imgList.length<1}}">
+                  <text class="cuIcon-camera "></text>
+                  <view>更换头像</view>
+                </view>
+              </view>
+            </view>
+          </form>
+        </view>
+      </view>
+      <form>
+        <view class="cu-form-group inputStyle bggrey">
+          <input style='text-align: left;' value='{{nickName}}' bindinput="getNickName"></input>
+        </view>
+      </form>
+      <view class='subBtn-box'>
+        <view class='subBtn' bindtap='subWish'>确定</view>
+      </view>
+    </view>
+  </view>
+</view>

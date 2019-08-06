@@ -1,0 +1,122 @@
+/* pages/sendCard/sendCard.wxss */
+.backText {
+  /* border: 1px solid black; */
+  height: 140rpx;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 46rpx;
+  font-size: 34rpx;
+  color: white;
+  background: #1D1545;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+}
+
+.myContent {
+  /* border: 1px solid black; */
+  width: 30%;
+  text-align: center;
+}
+
+.backIcon {
+  text-align: left;
+  padding-left: 40rpx;
+  z-index: 100;
+}
+.custom_color{
+  background: #1D1545;
+  color: white;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.sendbanner{
+  /* border: 1px solid black; */
+  /* height: 300rpx; */
+  padding: 115rpx 0 0 0;
+  background: white;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  z-index: -100;
+}
+.getbanner{
+  /* border: 1px solid red; */
+  width: 100%;
+  height:520rpx; 
+  display: flex;
+  justify-content: center;
+}
+.getbanner>image{
+  width: 100%;
+  height:520rpx; 
+}
+.getbanner-con{
+  /* border: 1px solid black; */
+  position: absolute;
+  top:320rpx;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.username{
+color: white;
+margin: 40rpx 0 60rpx 0;
+}
+.send-num{
+ font-size:52rpx; 
+ color: white;
+}
+.send-num>text:nth-child(2){
+  margin: 10rpx;
+}
+.get-btn{
+  padding: 20rpx 50rpx 50rpx 50rpx;
+}
+.directions{
+  display: flex;
+  justify-content: center;
+}
+.my-directions{
+  width:650rpx;
+  background:  #F5F5F5;
+  padding: 30rpx;
+  border-radius: 8px;
+  position: relative;
+  margin-top:50rpx;
+}
+.my-directions-list{
+  color: #999999;
+  margin: 20rpx 0;
+}
+.my-directions-botton{
+  margin-bottom: 40rpx;
+}
+.my-screaming{
+width: 100rpx;
+height: 100rpx;
+/* border: 1px solid black; */
+position: absolute;
+transform: rotate(45deg);
+right: 265rpx;
+top: -10rpx;
+ background:  #F5F5F5;
+ z-index: -1;
+}
+.subBtn2 {
+  width: 99%;
+  text-align: center;
+  /* border: 1px solid black; */
+  border-radius: 25px;
+  padding: 20rpx 0;
+  font-size: 36rpx;
+  margin-top: 60rpx;
+  background: #F5F5F5;
+}
+.subBtn2>text{
+  color: #FF3C75 ; 
+}

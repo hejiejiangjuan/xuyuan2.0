@@ -1,0 +1,19 @@
+<!--pages/me-feedback/me-feedback.wxml-->
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+  <view slot="content">举报</view>
+</cu-custom>
+<view class='feedPage'>
+  <view class='feedback-t fontStylexbg'>选择类型:</view>
+  <view class='check-btn fontStylexl'>
+    <view class="{{chekindex==index?'check-list1':'check-list2'}} check-list" wx:for='{{checkData}}' wx:key='index' data-index='{{index}}' bindtap='checke'>{{item.name}}</view>
+  </view>
+  <view class='feedback-t fontStylexbg'>反馈内容:</view>
+  <form>
+    <view class="cu-form-group texta ">
+      <textarea hidden='{{textaStatus}}' style='height:220rpx;' maxlength="30" disabled="{{modalName!=null}}" bindinput="getContent" placeholder="输入内容" value='{{content}}'></textarea>
+    </view>
+  </form>
+  <view class='subBtn-box'>
+    <view class='subBtn' bindtap='addRePort'>提交</view>
+  </view>
+</view>

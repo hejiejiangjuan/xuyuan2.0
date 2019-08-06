@@ -1,0 +1,23 @@
+<!--pages/checkprice/checkprice.wxml-->
+<cu-custom bgColor="bg-pink" isBack="{{true}}">
+  <view slot="backText"></view>
+  <view slot="content">购买心愿卡</view>
+</cu-custom>
+<view class='checkBg'>
+
+  <view class='checkprice'>
+    <view class="{{checkStatus==index?'checkpricelist1':'checkpricelist'}}" wx:for='{{checkPrice}}' wx:key='index' data-index='{{index}}' data-prze='{{item.priceYuan}}' id="{{item.id}}"  bindtap='checklist'>
+      <view class='checkpricetitle fontStylexbg'>{{item.comboName}}</view>
+      <view class="{{checkStatus==index?'checkpriceNum':''}}  fontStylexbg">
+        <text>￥</text>
+        <text class='footSizePr'>{{item.priceYuan}}</text>
+      </view>
+      <view class='checkpriceDay'>{{item.remark}}</view>
+    </view>
+  </view>
+  
+  <view class='subBtn-box priceBtn'>
+    <view class='subBtn' bindtap="{{payStatus?'pay':''}}">确认支付</view>
+  </view>
+
+</view>

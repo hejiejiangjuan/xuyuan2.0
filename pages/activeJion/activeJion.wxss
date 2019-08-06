@@ -1,0 +1,55 @@
+/* pages/activeJion/activeJion.wxss */
+
+
+
+.wishcontentjion {
+  /* border: 1px solid red; *//* padding-top: 290rpx; */
+  padding-bottom: 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wishPagejion {
+  width: 100%;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  /* border: 1px solid black; */
+  background-color: white;
+  padding: 50rpx 0 0 0;
+}
+
+.wishTypejon {
+  width: 90%;
+  background: white;
+  border-radius: 10px;
+  /* height: 100rpx; */
+  margin-bottom: 20rpx;
+  /* padding: 30rpx 30rpx 60rpx 30rpx; */
+}
+
+.fen-box {
+  padding-top: 20rpx;
+}
+
+.subtn-pad {
+  padding: 0 50rpx 120rpx 50rpx;
+  background: whitesmoke;
+}
+
+.detailbannr1 {
+  /* border: 1px solid black; */
+  width: 100%;
+  height: 450rpx;
+  position: relative;
+  /* border-radius: 10px; */
+  overflow: hidden;
+}
+
+.detailbannr1>image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 450rpx;
+}

@@ -1,0 +1,25 @@
+<!--pages/wishSuccess/wishSuccess.wxml-->
+<view class='cu-bg'>
+  <cu-custom isBack="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">许下的心愿</view>
+  </cu-custom>
+</view>
+
+<view class='wishCanvas' style=' background: url(https://file.heidouinfo.com/default/wish/wish_background.png)'>
+  <view class='myCanvas'>
+    <canvas id='wishCanvas' style="width:{{canvasWidth}}px; height:{{canvasHeight}}px;" canvas-id="firstCanvas"></canvas>
+  </view>
+  <view class='canvasBtn' bindtap='saveImg'>
+    <view class='canvasBtn-list fontStylexl'>
+      <text class='cuIcon-picfill iconfon'></text>
+      <text>保存图片</text>
+    </view>
+
+    <view class='canvasBtn-list fontStylexl' bindtap='backFirst'>
+        <text class='cuIcon-homefill iconfon'></text>
+      <text>返回首页</text>
+    </view>
+  </view>
+
+</view>

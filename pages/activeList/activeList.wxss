@@ -1,0 +1,112 @@
+/* pages/activeList/activeList.wxss */
+
+.publicBtn-foot {
+  background: linear-gradient(90deg, rgba(255, 61, 75, 1), rgba(255, 60, 158, 1));
+  font-size: 34rpx;
+  padding-right: 10rpx;
+  color: white;
+  width: 85%;
+}
+
+.buttonimg:after {
+  border: none;
+}
+
+.subBtn-public {
+  width: 99%;
+  text-align: center;
+  /* border: 1px solid black; */
+  border-radius: 25px;
+  color: white;
+  font-size: 36rpx;
+  margin-top: 60rpx;
+  background: linear-gradient(90deg, rgba(255, 61, 75, 1), rgba(255, 60, 158, 1));
+}
+
+.actveList-bnner {
+  /* border: 1px solid black; */
+  width: 100%;
+  height: 270rpx;
+  position: relative;
+}
+
+.actveList-bnner>image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 270rpx;
+}
+
+.title-pad {
+  padding: 20rpx 0 0 0;
+}
+
+.jion-btn {
+  /* border: 1px solid black; */
+  width: 170rpx;
+  height: 60rpx;
+  text-align: center;
+  line-height: 60rpx;
+  border-radius: 25px;
+  background: linear-gradient(90deg, rgba(255, 61, 75, 1), rgba(255, 60, 158, 1));
+  box-shadow: 0px 10px 30px 0px rgba(255, 60, 140, 0.3);
+  color: white;
+  font-size: 28rpx;
+}
+
+.active-list-name {
+  width: 58%;
+}
+
+.activeBg {
+  /* margin-bottom: 30rpx; */
+  padding: 15rpx 10rpx 0rpx 10rpx;
+  /* background: white; */
+}
+.detail-con-box{
+  padding:  0 15rpx 15rpx 15rpx;
+}
+
+.initiate-btn {
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 35rpx;
+  background: white;
+  position: fixed;
+  bottom: 30rpx;
+  right: 30rpx;
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  font-size: 16rpx;
+  font-weight: bold;
+  text-align: center;
+  background: linear-gradient(135deg, rgba(255, 61, 75, 1), rgba(255, 60, 158, 1));
+  box-shadow: 0px 10px 30px 0px rgba(255, 60, 140, 0.3);
+  color: white;
+}
+
+.initiate--con {
+  font-size: 36rpx;
+  color: #999;
+  border: 1px solid black;
+}
+
+.initiate--con>text {
+  margin: 10rpx;
+}
+
+.initiate-line {
+  border: 1px dashed #ccc;
+  width: 100%;
+  padding: 30rpx 0;
+  text-align: center;
+  background: #9999990e;
+}
+
+.content-pd {
+  padding-bottom: 176rpx;
+}

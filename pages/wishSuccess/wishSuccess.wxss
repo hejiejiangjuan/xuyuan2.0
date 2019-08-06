@@ -1,0 +1,49 @@
+/* pages/wishSuccess/wishSuccess.wxss */
+.wishCanvas{
+  border: 1px solid black;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+}
+
+.myCanvas{
+  display: flex;
+  justify-content: center;
+  /* border: 1px solid red; */
+  padding: 210rpx 50rpx 120rpx 50rpx;
+}
+#wishCanvas{
+  /* border: 1px solid red; */
+}
+.cu-bg{
+  background: #1D1545;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  color: white;
+  z-index: 100;
+}
+.canvasBtn{
+  display: flex;
+  justify-content: space-between;
+  /* border: 1px solid red; */
+  padding: 0 50rpx;
+}
+.canvasBtn-list{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.39);
+  border-radius: 25px;
+  padding: 15rpx 40rpx;
+  color: white;
+  width: 48%;
+  /* line-height: 46rpx; */
+  
+}
+.iconfon{
+  font-size: 34rpx;
+  margin: 10rpx;
+}

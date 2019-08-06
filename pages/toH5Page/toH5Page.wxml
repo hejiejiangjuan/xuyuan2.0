@@ -1,0 +1,8 @@
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+  <view slot="content">消息通知</view>
+</cu-custom>
+<view class="container">
+  <view class="pageH5">
+    <web-view src="{{addr}}"></web-view>
+  </view>
+</view>

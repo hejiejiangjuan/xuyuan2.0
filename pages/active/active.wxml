@@ -1,0 +1,548 @@
+<!--pages/active/active.wxml-->
+   
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+  <view slot="content">活动详情</view>
+</cu-custom>
+
+<!-- <view class='kong'></view> -->
+<view class='activbanner'>
+  <view class='banner' wx:if='{{!bnnerSrc}}'>
+    <image class='banner-img' src='{{fileServer+cover}}'></image>
+  </view>
+  <view class='banner' wx:else>
+    <image mode="aspectFill" class='banner-img' src='{{bnnerSrc}}'></image>
+  </view>
+  <!-- bindtap="chooseImage" -->
+  <view class='bannerBtn'  bindtap="chooseImage">
+    <view class='replaceBtn'>
+      <text class="cuIcon-camera xl text-white"></text>
+      <text>更换封面</text>
+    </view>
+    <view class="suggestSize">建议尺寸比例2.35:1</view>
+  </view>
+</view>
+
+
+<form>
+  <view class="cu-form-group activTitle">
+    <input maxlength='15' style='font-size: 34rpx;font-family:PingFang-SC-Bold;' placeholder="输入活动主题限15个字" bindinput="ActivityThemeInput" value="{{theme}}"></input>
+  </view>
+</form>
+
+<!-- 增加心愿 -->
+<view class='formModul-box formModul-box-pd '>
+  <view class='wishtype'>
+    <view class='wishtype-title'>选择心愿类型</view>
+    <!-- <view class='btnlist fontStylexl'>
+      <text wx:for='{{checkBtn}}' wx:key='{{item.id}}' data-index='{{item.id}}' class="{{id==item.id?'bgColor':''}}" bindtap='checkBtn'>{{item.name}}</text>
+    </view> -->
+  </view>
+  <view class='formModul' wx:for='{{wishinfo}}' wx:key='index' wx:for-item='wishinfoItem'>
+    <view class='wishteat' wx:key='index'>
+      <view class='xian' wx:if='{{index>=1}}'></view>
+      <view class='storyFoot'>
+        <view class='openBtn'>
+          <view class='myIcon'>
+            <image src='{{fileServer+wishinfoItem.icon}}' wx:if='{{wishinfoItem.icon}}'></image>
+            <image src='../../imgs/icon/wish_1@2x.png' wx:else></image>
+          </view>
+          <text wx:if='{{wishinfoItem.wishName}}'>#{{wishinfoItem.wishName}}#</text>
+          <text wx:else>#选择心愿类型#</text>
+        </view>
+
+        <view wx:if='{{index>=1}}' class='giveLike' data-index="{{index}}" bindtap="deleModal">
+          <text>删除</text>
+        </view>
+        <view class='giveLike' data-target="Modal" data-index="{{index}}" bindtap="showModal">
+          <text wx:if='{{wishinfoItem.wishName}}'>更换</text>
+          <text wx:else>选择</text>
+        </view>
+      </view>
+      <view class='inputBox'>
+        <view class='fromTitl'>*
+          <text>心愿奖品名称:</text>
+        </view>
+        <form>
+          <view class="cu-form-group inputStyle">
+            <input placeholder="输入奖品名称" data-index='{{index}}' bindinput="prizeName" value="{{prizeName}}"></input>
+            <view class='btnlist fontStylexl' data-index='{{index}}' bindtap='checkBtn'>
+              <text class="{{wishinfoItem.checkBtn?'':'bgColor'}}">实物</text>
+              <text class="{{wishinfoItem.checkBtn?'bgColor':''}}">虚拟</text>
+              <!-- <text wx:for='{{checkBtn}}' wx:key='{{item.id}}' data-index='{{item.id}}' data-id='{{wishinfoItem.id}}' class="{{id==item.id?'bgColor':''}}" bindtap='checkBtn'>{{item.name}}</text> -->
+            </view>
+          </view>
+        </form>
+      </view>
+      <view class='inputBox'>
+        <view class='fromTitl'>*
+          <text>奖品数量:</text>
+        </view>
+        <form>
+          <view class="cu-form-group inputStyle">
+            <input placeholder="输入数量" type="number" data-index='{{index}}' bindinput="prizeNum" value="{{prizeNum}}"></input>
+            <text class='fontStylelg'>份</text>
+          </view>
+        </form>
+      </view>
+
+    </view>
+  </view>
+
+  <view class='increase' wx:if='{{vipSwitch}}'>
+    <view class='increaseBtn' bindtap='insert'>
+      <view class='addIcon'>
+        <text class="cuIcon-add rightIcon"></text>
+      </view>
+      <text class='fontSizeLg'>增加心愿</text>
+    </view>
+  </view>
+</view>
+
+<!-- 说明 -->
+<view class='formModul-box'>
+  <view class='formModul formModul-pad'>
+    <view class='wishteat'>
+      <view class='inputBox'>
+        <view class='fromTitl'>*
+          <text>创意说明:</text>
+        </view>
+        <form>
+          <view class="cu-form-group textaBg margin-top">
+            <textarea hidden='{{textaStatus}}' style='height: 90rpx;' maxlength="30" disabled="{{modalName!=null}}" bindinput="creativityExplainInput" placeholder="输入心愿内容30字以内" value="{{explain}}"></textarea>
+          </view>
+        </form>
+      </view>
+
+      <view class='inputBox'>
+        <view class='fromTitl'>
+          <text>活动摘要说明:</text>
+        </view>
+        <form>
+          <view class="cu-form-group textaBg margin-top">
+            <textarea hidden='{{textaStatus}}' style='height: 90rpx;' maxlength="50" disabled="{{modalName!=null}}" bindinput="digestInput" placeholder="输入心愿内容50字以内"value='{{digest}}'></textarea>
+          </view>
+        </form>
+      </view>
+      <view class='inputBox'>
+
+        <view class='fromTitl'>*
+          <text>活动详情:</text>
+        </view>
+        <view wx:if='{{vipSwitch}}'>
+          <view class="detailContent" wx:if="{{detail_content.length>0}}" catchtap='goRichTextDemo'>
+            <editor id="editor" class="ql-container"  showImgSize showImgToolbar showImgResize bindstatuschange="onStatusChange"    read-only="true" bindready="onEditorReady" >
+      </editor>
+          </view>
+
+          <view class='richtext' wx:else catchtap='goRichTextDemo'>
+            <view class='richtext-btn'>
+              <view class='richtext-btn-icon'>
+                <text class="cuIcon-pic  text-gray"></text>
+              </view>
+              <view class='richtext-btn-text fontStylexbg'>添加图文介绍</view>
+            </view>
+          </view>
+        </view>
+
+
+        <form wx:else>
+          <view class="cu-form-group inputStyle ">
+            <textarea hidden='{{textaStatus}}' disabled="{{modalName!=null}}" bindinput="activeDetail" placeholder="输入内容"></textarea>
+          </view>
+        </form>
+      </view>
+
+      <view class='inputBox'>
+        <view class='fontStylexbg fromTitl-btn'>
+          <text><text class='start'>*</text>设定心愿开奖条件:</text>
+          <text bindtap='open'>修改心愿开奖条件</text>
+        </view>
+        <form>
+
+          <view class="cu-form-group inputStyle" wx:if='{{open_prize_con==1}}' bindtap="powerDrawer" data-statu="open">
+            <view class="title">日期选择</view>
+            <view class="tianjiashijian-right" bindtap="powerDrawer" data-statu="open">
+              <view>
+                <text class='topdamath'>{{str}}</text>
+                <text class="cuIcon-right"></text>
+              </view>
+            </view>
+            <!-- 模态框 -->
+            <view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>
+            <!--content-->
+            <!--使用animation属性指定需要执行的动画-->
+            <view animation="{{animationData}}" class="drawer_attr_box" wx:if="{{showModalStatus}}">
+              <view class="drawer_content">
+                <!-- <view>当前选择</view> -->
+                <view class='okqueding' data-statu="close" bindtap="powerDrawer">确定</view>
+                <my-date bind:bindSelect="bindSelect"></my-date>
+              </view>
+            </view>
+          </view>
+
+
+          <view class="cu-form-group inputStyle" wx:if='{{open_prize_con==2}}'>
+            <input placeholder="输入达到开奖的人数" bindinput="openNumInput" value="{{openNum}}"></input>
+            <text class='fontStylelg' >人</text>
+          </view>
+          <view class="cu-form-group inputStyle" wx:if='{{open_prize_con==3}}'>
+            <input style='color: black' disabled value='活动发起人手动开奖'></input>
+          </view>
+
+        </form>
+      </view>
+
+
+      <view class='inputBox'>
+        <view class='fromTitl'>*
+          <text>地区：</text>
+        </view>
+        <form>
+          <view class="cu-form-group inputStyle">
+            <view class="title">地址选择</view>
+            <picker mode="multiSelector" bindchange="RegionChange" bindcancel="bindcancel" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{selectArea}}" range-key="{{'name'}}">
+              <view class="picker">
+                <!-- {{region[0]}}，{{region[1]}}，{{region[2]}} -->
+                {{selectArea[0][multiIndex[0]].name}}{{selectArea[1][multiIndex[1]].name?'-'+selectArea[1][multiIndex[1]].name:''}}
+              </view>
+            </picker>
+          </view>
+        </form>
+      </view>
+
+      <view class='inputBox'>
+        <view class='fromTitl '>*
+          <text>手机号:</text>
+        </view>
+        <form>
+          <view class="cu-form-group inputStyle">
+            <input placeholder="输入手机号" bindinput="phoneInput" value="{{myphone}}"></input>
+          </view>
+        </form>
+      </view>
+
+      <view class='inputBox'>
+        <view class='fromTitl '>*
+          <text>验证码:</text>
+        </view>
+        <form>
+          <view class="cu-form-group inputStyle">
+            <input placeholder="输入验证码" bindblur='blurCode' value="{{blurCode}}"></input>
+            <icon type="success" wx:if='{{codeStatus==2}}' />
+            <text class='start' bindtap="huoquCode" wx:if='{{codeStatus==null}}'>获取验证码</text>
+            <text class='start1' wx:if='{{codeStatus==1}}'>验证码已发送</text>
+          </view>
+        </form>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 小程序公众号引流区 -->
+<view class='formModul-box' wx:if='{{vipSwitch}}'>
+  <view class='inputBox inputBoxline'>
+    <view class="cu-form-group">
+      <view class="mytitle fontStylexbg">品牌信息</view>
+      <switch class=" pink lg" bindchange='switch2change'></switch>
+    </view>
+  </view>
+  <view class='formModul' wx:if="{{drainageSwitch}}">
+    <view class='inputBox'>
+      <view class='fromTitl'>
+        <text>官方公众号ID:</text>
+      </view>
+      <form>
+        <view class="cu-form-group inputStyle">
+          <input placeholder="输入官方公众号ID" bindinput="thePublic" value="{{thePublic}}"></input>
+        </view>
+      </form>
+    </view>
+
+    <view class='inputBox'>
+      <view class='fromTitl'>
+        <text>商家名称:</text>
+      </view>
+      <form>
+        <view class="cu-form-group inputStyle">
+          <input placeholder="输入商家名称" bindinput="miniName" value="{{miniName}}"></input>
+        </view>
+      </form>
+    </view>
+
+    <view class='inputBox'>
+      <view class='fromTitl'>
+        <text>小程序ID:</text>
+      </view>
+      <form>
+        <view class="cu-form-group inputStyle">
+          <input placeholder="输入小程序ID:" bindinput="miniAppid" value="{{miniAppid}}"></input>
+        </view>
+      </form>
+    </view>
+
+    <view class='inputBox'>
+      <view class='fromTitl'>
+        <text>上传品牌logo:</text>
+      </view>
+
+      <view class='imgLogo'>
+        <form>
+          <view class="cu-form-group">
+            <view class="grid col-4 grid-square flex-sub">
+              <view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
+                <image src='{{imgList[index]}}' mode='aspectFill'></image>
+                <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+                  <text class="cuIcon-close"></text>
+                </view>
+              </view>
+              <view class="solids" bindtap="chooselogo" wx:if="{{imgList.length<1}}">
+                <text class="cuIcon-add"></text>
+              </view>
+            </view>
+          </view>
+        </form>
+      </view>
+
+    </view>
+  </view>
+</view>
+
+<!-- 授权区 -->
+<view class='inputBox inputBoxline' wx:if='{{vipSwitch}}'>
+  <view class="cu-form-group">
+    <view class="mytitle fontStylexbg">仅公众号粉丝可参与</view>
+    <switch class=" pink lg" bindchange='switch3change'></switch>
+  </view>
+</view>
+
+<view wx:if='{{fansSwitch}}'>
+  <view class='inputBoxline'>
+    <view class="cu-form-group" bindtap="authorization">
+      <view class="fontStylexbg mytitle">请授权所需公众号</view>
+      <input></input>
+      <text class='start' wx:if="{{publicName}}">{{publicName}}</text>
+      <text class='start' wx:else>未授权</text>
+      <text class="cuIcon-right text-gray"></text>
+    </view>
+  </view>
+
+  <view class='formModul formModulPd'>
+    <view class='fromTitl'>
+      <text>设置回复关键字:</text>
+    </view>
+    <view class='inputBox'>
+      <form>
+        <view class="cu-form-group inputStyle">
+          <input placeholder="输入回复关键字" bindinput="promptMsg" value="{{promptMsg}}"></input>
+        </view>
+      </form>
+    </view>
+
+    <view class='inputBox timeBox'>
+      <view class='fontStylexbg mytitle timeStatus'>
+        <text>用户最早关注时间:</text>
+        <view>
+          <!-- <text class="limit" wx:if='{{!timeStatus}}'>不限</text> -->
+          <checkbox class="round pink" checked='{{timeStatus}}' bindtap="timeStatus"></checkbox>
+        </view>
+
+      </view>
+      <form wx:if="{{timeStatus}}">
+        <view class="cu-form-group inputStyle">
+          <view class="title">选择日期</view>
+          <picker mode="date" value="{{date1}}" start="2015-09-01" end="2040-09-01" bindchange="ealeDateChange">
+            <view class="picker">
+              {{date1}}
+            </view>
+          </picker>
+        </view>
+      </form>
+    </view>
+
+    <view class='inputBox'>
+      <view class='fontStylexbg mytitle'>指定性别:</view>
+      <view class="cu-form-group inputStyle">
+        <view class="title">性别</view>
+        <picker bindchange="PickerChange" value="{{index}}" range="{{picker}}">
+          <view class="picker">
+            {{index?picker[index]:'不限'}}
+          </view>
+        </picker>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 心愿卡 -->
+<!-- <view class='formModul-box' wx:if='{{vipSwitch}}'>
+  <view class='inputBox inputBoxline'>
+    <view class="cu-form-group">
+      <view class="mytitle fontStylexbg">花费心愿卡</view>
+      <switch class=" pink lg" bindchange='switch4change'></switch>
+    </view>
+  </view>
+  <view class='formModul' wx:if='{{cardSwitch}}'>
+    <view class='inputBox'>
+      <view class='fromTitl'>
+        <text>参加活动时需要扣除的心愿卡:</text>
+      </view>
+      <form>
+        <view class="cu-form-group inputStyle">
+          <input placeholder="输入心愿卡数量"></input>
+          <text class='fontStylelg'>张</text>
+        </view>
+      </form>
+    </view>
+  </view>
+</view> -->
+
+<!-- 助力人数 -->
+<view class='formModul-box' wx:if='{{vipSwitch}}'>
+  <view class='inputBox inputBoxline'>
+    <view class="cu-form-group">
+      <view class="mytitle fontStylexbg">组队助力：</view>
+      <switch class=" pink lg" bindchange='switch5change'></switch>
+    </view>
+  </view>
+  <view class='formModul' wx:if="{{helpSwitch}}">
+    <view class='inputBox'>
+      <view class='fromTitl'>
+        <text>需要达到助力人数:</text>
+      </view>
+      <form>
+        <view class="cu-form-group inputStyle">
+          <input placeholder="输入人数" bindinput="helpNumInput" value="{{helpNumInput}}"></input>
+          <text class='fontStylelg'>人</text>
+        </view>
+      </form>
+    </view>
+  </view>
+</view>
+
+<view class='formModul-box'>
+  <view class='inputBox'>
+    <view class="cu-form-group">
+      <view class="mytitle fontStylexbg">允许参与者分享</view>
+      <switch class=" pink lg" checked="{{shareSwitch}}" bindchange='switch1change'></switch>
+    </view>
+  </view>
+</view>
+
+<!-- 一键复制区 -->
+<view class='formModul-box formModul formModul-pad'>
+  <view class='inputBox'>
+    <view class='fromTitl'>
+      <text>一键复制区</text>
+    </view>
+    <view class='subtitle'>可填写公众号等相关信息，用户可直接复制该内容</view>
+    <view class='copymodul'>
+      <form>
+        <view class="cu-form-group  inputCenter font_color fontStylexbg">
+          <input placeholder="在此填写引导文案" bindinput="leadExplain" value="{{leadExplain}}"></input>
+        </view>
+      </form>
+      <form>
+        <view class="cu-form-group inputStyle1 inputCenter font_color2">
+          <input style='height:140rpx;' placeholder="在此填写需要被复制的内容" bindinput="publicCommand" value="{{publicCommand}}"></input>
+        </view>
+      </form>
+      <view class='copybtn'>
+        <view class='copyBtn-button copyBtn-buttonCol'>点此一键复制</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<view class='footBtn'>
+  <view class='subBtn-box'>
+    <view class='subBtn' bindtap="{{subBtnStatus?'submitActive':''}}">发布</view>
+  </view>
+</view>
+
+<view class='ordinaryBtn' wx:if='{{vipSwitch}}' bindtap='generalBtn'>
+  <view class='ordinary-botton fontStylexbg'>切换为普通版本
+    <text class="cuIcon-right xl text-pink"></text>
+  </view>
+</view>
+<view class='morefunction' wx:else>
+  <view class='moreBtn'>
+    <view class='more-botton'>体验更多功能</view>
+  </view>
+  <view class='imgBtn'>
+    <view class='img-botton' bindtap='viPBtn'>
+      <image src='../../imgs/pageImgs/vip_bg_1@2x.png'></image>
+      <view class='imgBtn-content'>
+        <view class='vip-botton'>
+          <view class='vip-botton-img'>
+            <image src='/imgs/pageImgs/v@2x.png'></image>
+          </view>
+          <view class='vip-botton-t'>高级版</view>
+        </view>
+        <view class='vip-botton-con'>解锁更多功能，助力商家营销
+          <text class=' cuIcon-right'></text>
+        </view>
+      </view>
+      <view class='tag'>{{cardNum}}次可用</view>
+    </view>
+  </view>
+</view>
+
+<!-- 蒙板部分 -->
+<view class="cu-modal {{modalName=='Modal'?'show':''}}">
+  <view class="cu-dialog bg-white">
+    <view class="action deleIcon " bindtap="hideModal">
+      <text class="cuIcon-close text-grye"></text>
+    </view>
+    <view class="">
+      <view class="content wishTag-title">选择心愿类型</view>
+      <view class="wishTag-sub">选择越精准越有可能实现哦~</view>
+      <view class="" bindtap="hideModal">
+        <!-- <text class="cuIcon-close text-red"></text> -->
+      </view>
+    </view>
+    <view class="padding-xl">
+      <view class='wishTag'>
+        <view class='wishTag-tag fontSizerb'>
+          <block wx:for="{{typeData}}" wx:key='index'>
+            <view class="{{activ==item.id?'wishTag-tag-list1':'wishTag-tag-list'}}" data-item='{{item}}' bindtap='chooseType'>{{item.wishName}} </view>
+          </block>
+        </view>
+        <view class='mycustom'>
+          <view class='myradiao' data-index='99' bindtap='checkbox'>
+            <checkbox wx:if='{{checkboxStatus}}' class="round pink" checked></checkbox>
+            <checkbox wx:else class="round "></checkbox>
+
+            <text>自定义</text>
+          </view>
+          <view class='myInput' wx:if='{{checkboxStatus}}'>
+            <form>
+              <view class="cu-form-group inputStyle2">
+
+                <input maxlength='4' placeholder="请输入自定义类型" bindblur='getValue'></input>
+              </view>
+            </form>
+          </view>
+        </view>
+        <view class='subBtn-box'>
+          <view class='subBtn' bindtap='subWish'>确定</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>
+
+<view class="cu-modal {{modalName=='msgModal'?'show':''}} mymodal">
+  <view class="cu-dialog">
+    <view class="action deleIcon" bindtap="hideModal">
+      <text class="cuIcon-close text-grey"></text>
+    </view>
+    <view class="cu-bar  justify-end">
+      <view class="content wishTag-title">提示</view>
+    </view>
+    <view class="myInfo">
+      <view class='myInfo-con fontStylexbg'>{{msg}}</view>
+    </view>
+  </view>
+</view>

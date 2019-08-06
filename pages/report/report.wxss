@@ -1,0 +1,40 @@
+/* pages/me-feedback/me-feedback.wxss */
+
+.feedback-t {
+  color: #333;
+  font-weight: bold;
+  /* padding-bottom: 40rpx; */
+}
+
+.feedPage {
+  padding: 180rpx 40rpx 40rpx 40rpx;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  background: white;
+}
+
+.check-btn {
+  display: flex;
+  justify-content: space-between;
+  padding: 40rpx 0;
+}
+.check-list{
+  
+  margin: 10rpx;
+  padding: 15rpx 25rpx;
+  border-radius: 3px;
+}
+.check-list1{
+  border: 1px solid #FF3C75;
+  color: #FF3C75;
+}
+.check-list2{
+background: #F5F5F5;
+}
+.texta{
+  background: #F5F5F5;
+  font-size: 32rpx;
+  margin: 30rpx 0;
+}

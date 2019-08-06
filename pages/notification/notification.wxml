@@ -1,0 +1,37 @@
+<!--pages/notification/notification.wxml-->
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+  <view slot="content">中奖通知</view>
+</cu-custom>
+<!-- 下拉刷新动画 -->
+<view class="weui-loadmore" wx:if='{{isRefreshing}}'>
+  <view class="weui-loading"></view>
+  <view class="weui-loadmore-tips">正在刷新...</view>
+</view>
+<view class='syt-meg' wx:for="{{list}}" wx:key="{{item.id}}"  id='{{item.id}}' wx:for-index="idx">
+  <view class='syt-time'>{{item.sendDate}}</view>
+  <view class='syt-con'>
+    <view class='syt-con-t fontStylexbgg'>
+      <text>{{item.title}}</text>
+      <text class='cuIcon-title text-pink' wx:if="{{item.readStatus == 0}}"></text>
+    </view>
+    <view class='syt-con-n fontStylexbg'>亲爱的{{item.nickname}}：</view>
+    <view class='syt-con-c fontStylelg'>{{item.content}}</view>
+    <view class='toView fontStylexl' bindtap='toDatlie' data-index="{{idx}}">
+      <text>查看详情</text>
+      <text class='cuIcon-right'></text>
+    </view>
+  </view>
+</view>
+<!-- 上拉加载 -->
+<view wx:if='{{!isRefreshing}}' class="weui-loadmore">
+  <view wx:if='{{isLoadingMoreData}}'>
+    <view class="weui-loading"></view>
+    <view class="weui-loadmore-tips">正在加载更多...</view>
+  </view>
+  <view wx:elif='{{hasMoreData}}'>
+    <view class="weui-loadmore-tips" bindtap='onReachBottom'>点击加载更多</view>
+  </view>
+  <view wx:else>
+    <view class="weui-loadmore-tips">没有更多内容啦</view>
+  </view>
+</view>

@@ -1,0 +1,144 @@
+<!--pages/me-makewish/me-makewish.wxml-->
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+  <!-- <view slot="backText">返回</view> -->
+  <view slot="content">许下的心愿</view>
+</cu-custom>
+<!-- 下拉刷新动画 -->
+<view class="weui-loadmore" wx:if='{{isRefreshing}}'>
+  <view class="weui-loading"></view>
+  <view class="weui-loadmore-tips">正在刷新...</view>
+</view>
+<view class='myScroll'>
+  <scroll-view scroll-x class="nav">
+    <view class="flex text-center">
+      <view class="cu-item flex-sub {{index==TabCur?'text-black':''}}" wx:for="{{tabs}}" wx:key bindtap="tabSelect" data-id="{{index}}">
+        {{item.text}}
+      </view>
+    </view>
+  </scroll-view>
+</view>
+
+<view class='whis-box'>
+  <view class='whisContent' wx:for="{{myWishDetailList}}" wx:key="{{index}}" wx:for-index="idx">
+    <view class='userInfo'>
+      <view class='userInfo-con'>
+        <view class='userInfo-img'>
+          <view class="cu-avatar lg round " style="background-image:url({{item.imgAddr}});"></view>
+        </view>
+
+        <view class='userInfo-name'>
+          <view class='userInfoName'>
+            <view class='myName'>
+              <view class='nickname'>{{item.nickName}}</view>
+              <!-- <view class='level'>心愿达人</view>
+              <view>
+                <view class='myIcon'>
+                  <image src='../../imgs/icon/zz_05.png'></image>
+                </view>
+              </view> -->
+            </view>
+            <view class='city'>
+              <text class="cuIcon-locationfill lg text-gray"></text>{{item.city}}</view>
+            <view>
+            </view>
+          </view>
+
+          <view class='fromCtity'>
+            <view class='from-time'>{{item.createDateStr}}</view>
+            <view class='from-city' wx:if="{{item.activityName}}">
+              来自
+              <text>{{item.activityName}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <!-- 愿望列表 -->
+      <view class='wishList'>
+        <view class='wishContent' wx:for="{{item.wishListStr}}" wx:for-item="wishListStr" wx:key="{{wishListStr}}">
+          <view class='myIcon wishIcon'>
+            <image src='{{fileServer+wishListStr.icon}}'></image>
+          </view>
+          <view class='wish-cont'>{{wishListStr.wishContent}}</view>
+        </view>
+      </view>
+    </view>
+
+    <view class='xuxian'></view>
+    <!-- 背后的故事 -->
+    <view class='storyBehind'>
+      <view class='storyTitle'>
+        <view class='myIcon'>
+          <image src='/imgs/icon/story@2x.png'></image>
+        </view>
+        <view class='story-title'>背后的故事</view>
+      </view>
+      <view class="{{item.flag?'storyCon':'storyCon2'}}">
+        {{item.story}}
+      </view>
+      <view class='storyFoot' >
+        <view class="openBtn {{item.story.length > 40 ? '' : 'hideBtn'}}"  bindtap='openBtn' wx:if='{{item.flag}}' data-index="{{idx}}">
+          <text>展开全文</text>
+          <view class='myIcon'>
+            <!-- <image src='../../imgs/icon/xia.png'></image> -->
+            <text class='cuIcon-unfold'></text>
+          </view>
+        </view>
+        <view class="closeBtn {{item.story.length > 40 ? '' : 'hideBtn'}}" bindtap='openBtn' wx:else data-index="{{idx}}">
+          <text>收起全文</text>
+          <view class='myIcon'>
+            <!-- <image src='/imgs/icon/down@2x.png'></image> -->
+             <text class='cuIcon-fold'></text>
+          </view>
+        </view>
+        <!-- 自己的心愿不需要点赞 -->
+        <!-- <view class='giveLike' bindtap='giveLike' wx:if='{{item.isSurport==0}}'>
+          <view class='LikeIcon'>
+            <image src='/imgs/icon/light@2x.png'></image>
+          </view>
+          <text>点亮</text>
+        </view> -->
+        <view class='giveLike2' bindtap='giveLike' >
+          <view class='LikeIcon'>
+            <image src='/imgs/icon/light_hover.png'></image>
+          </view>
+          <text>{{item.supportNum}}</text>
+        </view>
+      </view>
+    </view>
+    <view class='xuxian'></view>
+
+    <view class='time-price'>
+      <view class='wish-time fontStylexl' wx:if="{{item.activityId}}">
+        <view class='text-co'>达成心愿所需要的金额区间</view>
+        <view class='text-col' wx:if="{{item.customPaymentYuan}}">{{item.customPaymentYuan}}元</view>
+        <view class='text-col' wx:else >{{item.minPaymentYuan}}-{{item.maxPaymentYuan}}元</view>
+      </view>
+      <view class='wish-time fontStylexl' wx:if="{{item.realizationYuan}}">
+        <view class='text-co' >达成心愿获得金额</view>
+        <view class='text-col' >{{item.realizationYuan}}元</view>
+      </view>
+      <view class='wish-time fontStylexl'>
+        <view class='text-co'>想要达成心愿时间</view>
+        <view class='text-col'>{{item.reachDateStr}}</view>
+      </view>
+
+    </view>
+
+  </view>
+
+   <!-- 上拉加载 -->
+<view wx:if='{{!isRefreshing}}' class="weui-loadmore">
+  <view wx:if='{{isLoadingMoreData}}'>
+    <view class="weui-loading"></view>
+    <view class="weui-loadmore-tips">正在加载更多...</view>
+  </view>
+  <view wx:elif='{{hasMoreData}}'>
+    <view class="weui-loadmore-tips" bindtap='onReachBottom'>点击加载更多</view>
+  </view>
+  <view wx:else>
+    <view class="weui-loadmore-tips">没有更多内容啦</view>
+  </view>
+</view>
+
+</view>

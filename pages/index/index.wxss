@@ -1,0 +1,278 @@
+/* 组件样式 */
+.cufill{
+  /* border: 1px solid black; */
+  width:70%;
+}
+.cufill-box{
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: center;
+  /* margin-bottom: 15rpx; */
+}
+.myLine{
+  border: 1px solid  #FF3C75 ;
+  width: 40rpx;
+  background:  #FF3C75 ;
+  border-radius: 25px;
+  position: absolute;
+  bottom: 0;
+  right: 105rpx;
+  height: 11rpx;
+}
+
+.text-black {
+  color: black;
+  font-weight: bold;
+}
+
+.flex-sub {
+  font-size: 32rpx;
+}
+
+/* 自定义样式 */
+
+.hideBtn {
+  opacity: 0;
+}
+
+.custom_color {
+  background: #1d1545;
+  color: white;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+}
+
+.wishPage {
+  /* position: fixed; */
+  width: 100%;
+  top: 110rpx;
+  z-index: 100;
+  /* border: 1px solid black; */
+}
+
+.myScroll {
+  background: #f1f1f1;
+  margin-bottom: 15rpx;
+}
+
+.banner-img {
+  width: 100%;
+  height: 410rpx;
+}
+
+.banner {
+  /* border: 1px solid black; */
+  width: 100%;
+  height: 410rpx;
+  position: relative;
+}
+
+.banner-con {
+  /* border: 1px solid red; */
+  width: 100%;
+  height: 410rpx;
+  position: absolute;
+  top: 0;
+}
+
+.barrage {
+  height: 320rpx;
+  /* border: 1px solid black; */
+  padding: 120rpx 30rpx 0 30rpx;
+}
+
+.mySwiper {
+  /* border: 1px solid red; */
+  height: 100rpx;
+}
+
+.uesrWish {
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 15rpx;
+  width: 60%;
+  height: 80rpx;
+  /* background: rgba(29, 21, 70, 0.144); */
+  border-radius: 25px;
+}
+
+.userImg {
+  /* border: 1px solid black; */
+  position: relative;
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.userImg>image {
+  width: 60rpx;
+  height: 60rpx;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.wishCon {
+  /* border: 1px solid black; */
+  padding-left: 20rpx;
+  color: white;
+  font-size: 24rpx;
+  width: 80%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.banner-foot {
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30rpx;
+  /* border: 1px solid blue; */
+}
+
+.foot-text>text:nth-child(2) {
+  color: #ffc337;
+}
+
+.foot-btn {
+  /* border: 1px solid rgba(255, 255, 255, 1); */
+  border-radius: 25px;
+  padding: 10rpx 40rpx;
+}
+
+.whisContent {
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0 30rpx;
+  margin-bottom: 25rpx;
+}
+
+.userInfo-img {
+  /* border: 1px solid black; */
+}
+
+.city {
+  color: rgb(196, 195, 195);
+  /* border: 1px solid black; */
+  width: 200rpx;
+  text-align: right;
+  font-size: 18rpx;
+}
+.city>text:nth-child(2){
+  font-size: 18rpx;
+}
+
+.detali-type {
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.detali-type-list {
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  width: 756rpx;
+  margin: 10rpx 0;
+}
+
+.detali-type-btn {
+  /* border: 1px solid black; */
+  width: 240rpx;
+  text-align: center;
+  padding: 10rpx 0;
+  background: linear-gradient(90deg, rgba(255, 61, 75, 1), rgba(255, 60, 158, 1));
+  border-radius: 25px;
+  color: white;
+  font-size: 26rpx;
+}
+
+.detali-type-list-c {
+  width: 146rpx;
+  margin-left: 10rpx;
+  margin-top: 10rpx;
+  /* border: 1px solid black; */
+  text-align: center;
+  font-size: 26rpx;
+  color: #7436c1;
+  border-radius: 3px;
+  background: #f4effa;
+}
+
+.footbtn {
+  position: fixed;
+  /* border: 1px solid black; */
+  bottom: 40rpx;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.btnImg {
+  width: 100rpx;
+  height: 100rpx;
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.btnImg>image {
+  width: 100rpx;
+  height: 100rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.detali-title {
+  color: #999;
+  text-align: center;
+}
+
+.detalie-userImgs {
+  display: flex;
+  justify-content: center;
+  margin: 30rpx 0;
+}
+
+.addbtnImg {
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80rpx;
+  height: 80rpx;
+  background: linear-gradient(135deg, rgba(255, 61, 75, 1), rgba(255, 60, 158, 1));
+  border-radius: 50%;
+  text-align: center;
+  line-height: 80rpx;
+  color: white;
+  font-size: 40rpx;
+  font-weight: bold;
+  box-shadow: 0 0 2px #ff3c9e;
+}
+
+.upIcon {
+  /* border: 1px solid black; */
+  height: 50rpx;
+  width: 25rpx;
+  line-height: 50rpx;
+  margin-left: 10rpx;
+}
+
+.upIcon>image {
+  height: 15rpx;
+  width: 25rpx;
+}

@@ -1,0 +1,20 @@
+<!--pages/theFirst/theFirst.wxml-->
+<cu-custom bgColor="bg-pink" isBack="{{true}}">
+	<view slot="backText"></view>
+	<view slot="content">我要上首页</view>
+</cu-custom>
+<view class='first-card' >
+<view class='myCard myCardBg'bindtap='activeFirst'>
+  <view class='first-icn'><text class="cuIcon-presentfill text-white"></text></view>
+  <view>活动上首页</view>
+</view>
+
+<view class='myCard myCardBg1'bindtap='wishFirst'>
+  <view class='first-icn'><text class="cuIcon-likefill text-white"></text></view>
+  <view>心愿上首页</view>
+</view>
+</view> 
+
+<view class='first-card'>
+
+</view> 

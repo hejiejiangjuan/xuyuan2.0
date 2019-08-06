@@ -1,0 +1,53 @@
+<!--pages/winner/winner.wxml-->
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+  <view slot="content">中奖者信息</view>
+</cu-custom>
+<view>
+  <view class="winnerInfo">
+    <text>已告知中奖者</text>
+    <text class="giveTime"></text>
+    <text>填写中奖信息，地址填写和更新将发通知给您；开奖7天后中奖者将不能填写地址</text>
+  </view>
+  <view class="fillIn" wx:if='{{userAddress.length>0}}'>已填写</view>
+
+  <block wx:for="{{userAddress}}" wx:key='index'>
+    <view class="winner-userInfo" wx:if='{{userAddress}}'>
+
+      <view class="winner-userImg">
+        <view class="cu-avatar sm round margin-right" style="background-image:url({{item.avatarUrl}});"></view>
+        <text class="user-name">{{item.username}}</text>
+      </view>
+      <view class="useraddress">{{item.username}},{{item.telnumber}},{{item.provincename}} {{item.cityName}}{{item.countyname}} {{item.detailinfo}} {{item.remark}}
+      </view>
+    </view>
+  </block>
+  <view class="winner-addres-add" wx:if='{{userAddress.length<=0}}'>暂时无人填写收货地址</view>
+  <view class="winndrBtn">
+    <view class="wiinner-buttn download" bindtap="downloadAddress">下载文件</view>
+    <view class="wiinner-buttn copy" bindtap="copyAllAddress">一件复制全部</view>
+  </view>
+</view>
+<view class="cu-modal {{modalName=='giveModal'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="action deleIcon " bindtap="hideModal">
+      <text class="cuIcon-close text-grye"></text>
+    </view>
+
+    <view class="cu-bar justify-end">
+      <view class="content">复制地址下载</view>
+      <view class="action" bindtap="hideModal">
+        <!-- <text class="cuIcon-close text-red"></text> -->
+      </view>
+    </view>
+
+    <view class="addres">
+      <view class="myaddres"> {{downUrl}}</view>
+    </view>
+
+    <view class="cu-bar  justify-center">
+      <view class="action">
+        <button class="cu-btn line-pink margin-left" bindtap="copyPublicCommand">复制</button>
+      </view>
+    </view>
+  </view>
+</view>

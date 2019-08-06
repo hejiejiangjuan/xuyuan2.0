@@ -1,0 +1,292 @@
+<!--pages/wish/wish.wxml-->
+<view class='custom_color'>
+  <cu-custom>
+    <view slot="content">许愿</view>
+  </cu-custom>
+</view>
+<view class='kong'></view>
+<view class='wishPage' style='background-image:url({{bgSrc}})'>
+  <view class='wishcontent'>
+    <view class='wishType'>
+      <view class='fromTitl'>*
+        <text>你的心愿</text>
+      </view>
+      <view class='subtitle'>一次最多可留下六个心愿</view>
+      <view class='wishteat' wx:for='{{info}}' wx:key='index'>
+        <view class='xian' wx:if='{{index>=1}}'></view>
+        <view class='storyFoot'>
+          <view class='tpyeBtn'>
+            <view class='myIcon'>
+              <image src='{{item.icon}}' wx:if='{{item.icon}}'></image>
+              <image src='../../imgs/icon/wish_1@2x.png' wx:else></image>
+            </view>
+            <text wx:if='{{item.wishName}}'>#{{item.wishName}}#</text>
+            <text wx:else>#选择心愿类型#</text>
+          </view>
+          <view wx:if='{{index>=1}}' class='giveLike' data-index="{{index}}" bindtap="deleModal">
+            <text>删除</text>
+          </view>
+          <view class='giveLike' data-target="Modal" data-index="{{index}}" bindtap="showModal">
+            <text wx:if='{{item.wishName}}'>更换</text>
+            <text wx:else>选择</text>
+          </view>
+        </view>
+        <view class="cu-form-group textaBg">
+          <textarea hidden='{{textaStatus}}' style='height: 73rpx;' maxlength="30" disabled="{{modalName!=null}}" data-index='{{index}}' bindinput="wishAInput" placeholder="输入心愿内容30字以内" value="{{wishCont}}"></textarea>
+        </view>
+      </view>
+      <view class='increase'>
+        <view class='increaseBtn' bindtap='insert'>
+          <view class='addIcon'>
+            <text class="cuIcon-add rightIcon"></text>
+          </view>
+          <text class='fontSizeLg'>增加心愿</text>
+        </view>
+      </view>
+    </view>
+
+    <view class='wishType'>
+      <view class='inputBox'>
+        <view class='fontSizeXl'>达成心愿所需的金额:</view>
+        <block wx:for='{{prizinfo}}' wx:key="index">
+          <view class="cu-form-group inputStyle" data-target1="Modal" bindtap="showModalPayment" >
+            <view class="title" wx:if='{{item.minPaymentYuan&&item.maxPaymentYuan}}'>{{item.minPaymentYuan*100/100}}-{{item.maxPaymentYuan*100/100}}</view>
+            <view class="title" wx:elif='{{item.customPaymentYuan}}'>{{item.customPaymentYuan}}</view>
+            <view wx:else> 请选择</view>
+            <input></input>
+            <text class="cuIcon-right text-gray"></text>
+          </view>
+          <view class='jion-card-num' wx:if='{{item.wishCardNum!=null || item.wishCardNum==0}}'>
+            <view class='jion-card-text fontStylexl'>
+              <text>花费</text>
+              <text>{{item.wishCardNum}}</text>
+              <text>个心愿卡更容易被选中实现哦~</text>
+            </view>
+            <view class='checkBtn'>
+              <checkbox class="round sm pink" checked='{{stuCard}}' data-num='{{item.wishCardNum}}' bindtap="checkBtn"></checkbox>
+            </view>
+          </view>
+        </block>
+      </view>
+
+
+
+      <view class='inputBox'>
+        <view class='fontSizeXl'>想要达成心愿的时间:</view>
+        <form>
+          <view class="cu-form-group inputStyle">
+            <view class="title">日期选择</view>
+            <picker mode="date" value="{{date}}" start="{{tYear}}-{{tMonth+1}}-{{tday}}" end="2040-09-01" bindchange="DateChange">
+              <view class="picker">
+                {{date}}
+              </view>
+            </picker>
+          </view>
+        </form>
+      </view>
+
+      <form>
+        <view class='inputBox'>
+          <view class='fromTitl'>*
+            <text>心愿背后的故事 </text>
+          </view>
+          <view class='wishteat'>
+            <view class="cu-form-group inputStyle ">
+              <textarea hidden='{{textaStatus}}' disabled="{{modalName!=null}}" bindinput="textareaAInput" value="{{storyText}}" placeholder="请输入你的心愿背后的故事"></textarea>
+            </view>
+          </view>
+        </view>
+      </form>
+
+
+
+      <view class='inputBox'>
+        <view class='fromTitl'>*
+          <text>留下您的微信</text>
+        </view>
+        <view class='subtitle'>您的心愿被选中实现时，我们将通过微信号通知您~</view>
+        <form>
+          <view class="cu-form-group inputStyle">
+            <input placeholder="输入微信号" bindinput="getweixin" value="{{weixin}}"></input>
+          </view>
+        </form>
+      </view>
+
+
+      <view class='inputBox'>
+        <view class='fromTitl'>*
+          <text>地区：</text>
+        </view>
+        <form>
+          <view class="cu-form-group inputStyle" bindtap='clickArea'>
+            <view class="title">地址选择</view>
+            <picker mode="multiSelector" bindchange="RegionChange" bindcancel="bindcancel" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{selectArea}}" range-key="{{'name'}}">
+              <view class="picker">
+                <!-- {{region[0]}}，{{region[1]}}，{{region[2]}} -->
+                {{selectArea[0][multiIndex[0]].name}}{{selectArea[1][multiIndex[1]].name?'-'+selectArea[1][multiIndex[1]].name:''}}
+              </view>
+            </picker>
+          </view>
+        </form>
+      </view>
+
+      <view class='inputBox'>
+        <view class='fromTitl'>
+          <text>署名：</text>
+        </view>
+        <view class='inpuIcon'>
+          <form>
+            <view class="cu-form-group inputStyle1">
+              <input placeholder="小瓶盖" bindinput="getnickName" value="{{randomName}}"></input>
+            </view>
+          </form>
+          <view class='myIcon' bindtap='getRandomDefaultNickName'>
+            <image src='../../imgs/icon/refresh@2x.png'></image>
+          </view>
+        </view>
+      </view>
+      <view class='subBtn-box'>
+        <view class='submitBtnSty '>
+          <form bindsubmit="getFromId" report-submit='true'>
+            <button class="submitBtn round" form-type="submit" bindtap="{{!buttonClicked?'subMitWish':''}}">许愿</button>
+          </form>
+        </view>
+      </view>
+
+    </view>
+  </view>
+
+  <view class="cu-modal {{modalName=='Modal'?'show':''}}">
+    <view class="cu-dialog bg-white">
+      <view class="action deleIcon " bindtap="hideModal">
+        <text class="cuIcon-close text-grye"></text>
+      </view>
+      <view class="">
+        <view class="content wishTag-title">选择心愿类型</view>
+        <view class="wishTag-sub">选择越精准越有可能实现哦~</view>
+        <view class="" bindtap="hideModal">
+          <!-- <text class="cuIcon-close text-red"></text> -->
+        </view>
+      </view>
+      <view class="padding-xl">
+        <view class='wishTag'>
+          <view class="wishTag-prz-cent">
+            <view class='wishTag-tag fontSizerb'>
+              <block wx:for="{{typeData}}" wx:key='index'>
+                <view class="{{activ==item.id?'wishTag-tag-list1':'wishTag-tag-list'}}" data-item='{{item}}' bindtap='chooseType'>{{item.wishName}} </view>
+              </block>
+
+            </view>
+          </view>
+
+          <view class='mycustom'>
+            <view class='myradiao' data-index='99' bindtap='checkbox'>
+              <checkbox wx:if='{{checkboxStatus}}' class="round pink" checked></checkbox>
+              <checkbox wx:else class="round "></checkbox>
+
+              <text>自定义</text>
+            </view>
+            <view class='myInput' wx:if='{{checkboxStatus}}'>
+              <form>
+                <view class="cu-form-group inputStyle2">
+
+                  <input maxlength='4' placeholder="请输入自定义类型" bindblur='getValue'></input>
+                </view>
+              </form>
+            </view>
+          </view>
+          <view class='subBtn-box'>
+            <view class='subBtn' bindtap='subWish'>确定</view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+
+  <view class="cu-modal {{modalName1=='Modal'?'show':''}}">
+    <view class="cu-dialog bg-white">
+      <view class="action deleIcon " bindtap="hideModal">
+        <text class="cuIcon-close text-grye"></text>
+      </view>
+      <view class="">
+        <view class="content wishTag-title">选择所需金额</view>
+        <!-- <view class="wishTag-sub">选择越精准越有可能实现哦~</view> -->
+        <view class="" bindtap="hideModal">
+        </view>
+      </view>
+      <view class="padding-xl">
+        <view class='wishTag'>
+          <view class="wishTag-prz-cent">
+            <view class='wishTag-prz fontSizerb'>
+              <block wx:for="{{prizeData}}" wx:key='index'>
+                <view class="{{activ==item.id?'wishTag-prz-list1':'wishTag-prz-list'}}" data-item='{{item}}' bindtap='choosePayment'>{{item.minPaymentYuan*100/100}}-{{item.maxPaymentYuan*100/100}} </view>
+              </block>
+            </view>
+          </view>
+          <view class='mycustom'>
+            <view class='myradiao' data-index='99' bindtap='paymentCheckbox'>
+              <checkbox wx:if='{{checkboxPaymentStatus}}' class="round pink" checked></checkbox>
+              <checkbox wx:else class="round "></checkbox>
+              <text>自定义</text>
+            </view>
+
+            <view class='myInput' wx:if='{{checkboxPaymentStatus}}'>
+              <form>
+                <view class="cu-form-group inputStyle2">
+
+                  <input maxlength='4' placeholder="请输入自定义类型" bindblur='getValue1'></input>
+                </view>
+              </form>
+            </view>
+          </view>
+          <view class='subBtn-box'>
+            <view class='subBtn' bindtap='subPriz'>确定</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="cu-modal {{modalName=='wishModal'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="action deleIcon " bindtap="hideModal">
+      <text class="cuIcon-close text-grye"></text>
+    </view>
+    <view class="cu-bar justify-end">
+      <view class="content">提示</view>
+      <view class="action" bindtap="hideModal">
+        <!-- <text class="cuIcon-close text-red"></text> -->
+      </view>
+    </view>
+    <view class="padding-xl wishWarm">
+      <text>心愿卡数量不足</text>
+      <text class="wisNum">{{wishCardNum}}</text>个
+    </view>
+    <view class="cu-bar  justify-center ">
+      <view class='subBtn-box giveCard'>
+        <view class='subBtn' bindtap='togive'>去购买心愿卡</view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="cu-modal {{modalName=='giveModal'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">提示</view>
+      <view class="action" bindtap="hideModal">
+        <!-- <text class="cuIcon-close text-red"></text> -->
+      </view>
+    </view>
+    <view class="padding-xl">
+      <text>请转到安卓系统获取</text>
+    </view>
+    <view class="cu-bar  justify-center">
+      <view class="action">
+        <!-- <button class="cu-btn line-green text-green" bindtap="hideModal">取消</button> -->
+        <button class="cu-btn line-pink margin-left" bindtap="hideModal">好的！</button>
+
+      </view>
+    </view>
+  </view>
+</view>

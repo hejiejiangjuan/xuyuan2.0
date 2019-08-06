@@ -1,0 +1,164 @@
+<!--pages/wishCard/wishCard.wxml-->
+<cu-custom bgColor="bg-pink" isBack="{{true}}">
+  <view slot="backText"></view>
+  <view slot="content">我的心愿卡</view>
+</cu-custom>
+<view class='wishCard-banner'>
+  <view class='wishCard-banner-img'>
+    <image src='/imgs/icon/heart_bg_2@2x.png'></image>
+    <view class='wishCard-banner-con'>
+      <view class='cardNum fontStylexbg'>
+        <text>{{wishCardNum}}</text>
+        <text>张心愿卡</text>
+      </view>
+      <view class='cardDetail'>
+        <view class='cardDetaillist' bindtap='cardDatlie'>心愿卡明细</view>
+        <view class='cardDetaillist' bindtap="showInput">赠送给好友</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+
+<!-- <view class="cu-bar  justify-end">
+    <view class="content wishTag-title">输入赠送张数</view>
+  </view> -->
+<view class="myInputBtn" wx:if="{{modol}}">
+  <view class="cuInputStyle">
+    <view>
+      <form>
+        <view class="cu-form-group inputStyle bggrey">
+          <input style='text-align: left;' placeholder='输入张数' value='{{num}}' bindinput="getNum"></input>
+          <text>张</text>
+        </view>
+      </form>
+      <view class="iputBtn">
+        <view class="cuBtn">
+          <button class="cu-btn text-pink line-pink" bindtap="hiddenInput">取消</button>
+        </view>
+        <view class="cuBtn">
+          <button class="cu-btn text-pink line-pink" data-target="Modal" bindtap="showModal">确定</button>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<view class='getCard'>
+  <view class='getCard-title'>如何获得心愿卡</view>
+  <view class='getCard-con'>
+    <view class='getCard-con-left'>
+      <view class='getCard-con-title'>
+        <view class='myIcon'>
+          <image src='/imgs/icon/heart_1@2x.png'></image>
+        </view>
+        <text>许下的心愿</text>
+      </view>
+      <!-- <view class='getCard-con-con'>累计许下50个心愿可获得一张心愿卡</view> -->
+    </view>
+    <view class='gowish fontStylexbg' bindtap='toWish'>去许愿</view>
+  </view>
+
+  <view class='getCard-con'>
+    <view class='getCard-con-left'>
+      <view class='getCard-con-title'>
+        <view class='myIcon'>
+          <image src='/imgs/icon/heart_2@2x.png'></image>
+        </view>
+        <text wx:if='{{phoneStatus}}'>购买心愿卡</text>
+         <text wx:else>获得心愿卡</text>
+      </view>
+      <view class='getCard-con-con' wx:if='{{phoneStatus}}'>可花钱购买相应的心愿卡</view>
+      <view class='getCard-con-con' wx:else>可获得相应的心愿卡</view>
+    </view>
+    <view class='gowish fontStylexbg' bindtap='togiveCard' wx:if='{{phoneStatus}}'>去购买</view>
+    <view class='gowish fontStylexbg' bindtap='togiveCard' wx:else>去获取</view>
+  </view>
+</view>
+
+<view class='getCard'>
+  <view class='getCard-title'>心愿卡的用途</view>
+  <view class='getCard-con'>
+    <view class='getCard-con-left'>
+      <view class='getCard-con-title'>
+        <view class='myIcon'>
+          <image src='/imgs/icon/heart_3@2x.png'></image>
+        </view>
+        <text>参加活动时扣除</text>
+      </view>
+      <view class='getCard-con-con'>某些活动需要花费心愿卡才能参加</view>
+    </view>
+    <!-- <view class='gowish fontStylexbg'>去许愿</view> -->
+  </view>
+  <view class='getCard-con'>
+    <view class='getCard-con-left'>
+      <view class='getCard-con-title'>
+        <view class='myIcon'>
+          <image src='/imgs/icon/heart_4@2x.png'></image>
+        </view>
+        <text>心愿更容易实现</text>
+      </view>
+      <view class='getCard-con-con'>许下心愿时使用心愿卡，更容易被我们选中实现噢~</view>
+    </view>
+    <!-- <view class='gowish fontStylexbg'>去购买</view> -->
+  </view>
+</view>
+
+<view class="cu-modal {{modalName=='Modal'?'show':''}} mymodal">
+  <view class="cu-dialog">
+    <view class="padding-xl">
+     确定赠送{{num}}张心愿卡给好友
+    </view>
+    <view class="cu-bar bg-white justify-end">
+      <view class="action">
+        <button class="cu-btn line-pink text-pink" bindtap="hideModal">取消</button>
+        <button class="cu-btn bg-pink margin-left"  open-type="share">确定</button>
+      </view>
+    </view>
+  </view>
+
+  <!--<view class="cu-dialog">
+    <view class="cu-bar  justify-end">
+      <view class="content wishTag-title">输入赠送张数</view>
+    </view>
+
+    <view class="myInfo">
+
+      <form>
+        <view class="cu-form-group inputStyle bggrey">
+          <input style='text-align: left;' placeholder='输入张数' value='{{num}}' bindinput="getNum"></input>
+          <text>张</text>
+        </view>
+      </form>
+      <view class='subBtn-box'>
+        <view class='subBtn' bindtap="sendWishcardToOther" wx:if='{{subBtnStatus}}'>确定</view>
+        <button class='subBtn' open-type="share" wx:else>分享</button>
+      </view>
+    </view>
+  </view>
+  <view class="action deleIcon " bindtap="hideModal">
+    <text class="cuIcon-close text-white"></text>
+  </view> -->
+</view>
+<view class="cu-modal {{modalName=='giveModal'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">提示</view>
+      <view class="action" bindtap="hideModal">
+        <!-- <text class="cuIcon-close text-red"></text> -->
+      </view>
+    </view>
+    <view class="padding-xl">
+     <text>由于相关规定，iPhone用户暂不可在小程序中继续</text>
+    </view>
+    <view class="cu-bar  justify-center">
+      <view class="action">
+        <!-- <button class="cu-btn line-green text-green" bindtap="hideModal">取消</button> -->
+        <button class="cu-btn line-pink margin-left" bindtap="hideGiveModal">好的！</button>
+
+      </view>
+    </view>
+  </view>
+</view>

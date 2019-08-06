@@ -1,0 +1,79 @@
+/* pages/checkprice/checkprice.wxss */
+
+.priceBtn {
+  padding: 0 50rpx;
+  margin: 40rpx 0;
+}
+
+.checkBg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: white;
+}
+
+.homePromote {
+  font-size: 36rpx;
+  color: #333;
+  font-weight: bold;
+}
+
+.homeThame {
+  font-size: 26rpx;
+  color: #999;
+  padding: 10rpx 0;
+}
+
+.homePromote-list {
+  /* border: 1px solid black; */
+  padding: 40rpx;
+}
+
+.Promote-all {
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.Promote-icon>image {
+  height: 30rpx;
+  width: 30rpx;
+}
+
+.Promote-icon {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.Promote-list {
+  /* border: 1px solid black; */
+  width: 50%;
+  margin-top: 15rpx;
+}
+
+.prompt-instructions {
+  color: #999;
+  padding-left: 40rpx;
+  font-size: 24rpx;
+}
+
+.Promote-icon>text {
+  margin-left: 10rpx;
+  font-size: 24rpx;
+}
+
+.prompt {
+  border-top: 1px solid #eee;
+  text-align: center;
+  margin-top: 40rpx;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  color: #999;
+  font-size: 24rpx;
+}

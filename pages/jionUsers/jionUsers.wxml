@@ -1,0 +1,19 @@
+<!--pages/jionUsers/jionUsers.wxml-->
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+  <view slot="content">参与用户</view>
+</cu-custom>
+<view class='userImgBg'>
+  <view class='userInfmg'>
+    <view class='detail-jion-num'>
+      <view class='detail-jion-con'>
+        <view class='detail-jion-con2'>共有{{userImg.length}}人参与</view>
+      </view>
+    </view>
+  </view>
+  <view class='userImg-box'>
+  <block wx:for='{{userImg}}' wx:key="index">
+  <view class="cu-avatar  margin-user" style="background-image:url({{item.imgAddr}});"></view>
+  </block>
+  
+  </view>
+</view>

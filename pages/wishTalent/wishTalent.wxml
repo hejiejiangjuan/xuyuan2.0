@@ -1,0 +1,55 @@
+<!--pages/wishTalent/wishTalent.wxml-->
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+  <view slot="content">我的徽章</view>
+</cu-custom>
+<view class='badge'>
+  <image src='/imgs/pageImgs/badge_bg.png'></image>
+  <view class='badge-con'>
+    <!-- <view class='badge-text'>
+      <view class='badge-text-title'>我是一个来自太阳系的使者</view>
+      <view class='badge-text-con'>完成任务，即可解锁我所有的身份</view>
+    </view> -->
+
+
+    <view class='badge-list' >
+      <view class='badge-list-con' wx:if='{{!curMedal}}'>
+        <view class='badge-list-conImg'>
+          <image src='{{curMedal.addr}}'></image>
+        </view>
+        <view class='badge-list-con-text'>
+          <view>
+            <view class='badge-list-title'>{{curMedal.medalName}}</view>
+            <view class='badge-list-nike'>累计积分达到{{curMedal.integralNum}}分，即可解锁</view>
+          </view>
+          <view class='badge-btn'>已佩戴</view>
+        </view>
+      </view>
+
+
+
+      <view class='badge-list-con' wx:for='{{medalTypes}}' wx:key='index'>
+
+        <view class='badge-list-conImg'>
+          <image src='{{item.addr}}'></image>
+        </view>
+        <view class='badge-list-con-text'>
+          <view>
+            <view class='badge-list-title'>{{item.medalName}}</view>
+            <view class='badge-list-nike'>累计积分达到{{item.integralNum}}分，即可解锁</view>
+            <view class="flex margin-top">
+              <view class="cu-progress round">
+                <view class="bg-green" style="width:{{loading?item.progress:''}};"></view>
+              </view>
+              <text class="margin-left">{{integralNum}}/{{item.integralNum}}</text>
+            </view>
+          </view>
+          <view class='badge-btn-color' wx:if='{{item.integralNum <=integralNum}}' data-item='{{item}}' bindtap="changeMedalType">佩戴</view>
+          <view class='badge-btn' wx:else>未解锁</view>
+
+        </view>
+      </view>
+    </view>
+
+
+  </view>
+</view>

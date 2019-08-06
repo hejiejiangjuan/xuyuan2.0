@@ -1,0 +1,91 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/active/active",
+    "pages/wish/wish",
+    "pages/me/me",
+    "pages/richtext/richtext",
+    "components/richtext-ment/richtext-ment",
+    "pages/theFirst/theFirst",
+    "pages/activeFirst/activeFirst",
+    "pages/wishFirst/wishFirst",
+    "pages/checkprice/checkprice",
+    "pages/me-makewish/me-makewish",
+    "pages/me-activeJion/me-activeJion",
+    "pages/inpleWish/inpleWish",
+    "pages/me-initiateActive/me-initiateActive",
+    "pages/wishCard/wishCard",
+    "pages/sendCard/sendCard",
+    "pages/problems/problems",
+    "pages/me-message/me-message",
+    "pages/me-contact/me-contact",
+    "pages/me-aboutUs/me-aboutUs",
+    "pages/me-cooperation/me-cooperation",
+    "pages/me-feedback/me-feedback",
+    "pages/evenDetails/evenDetails",
+    "pages/vipCheck/vipCheck",
+    "pages/activeJion/activeJion",
+    "pages/systemMessage/systemMessage",
+    "pages/detailCanvas/detailCanvas",
+    "pages/activeList/activeList",
+    "pages/wishSuccess/wishSuccess",
+    "pages/notification/notification",
+    "pages/wishLight/wishLight",
+    "pages/cardDatlie/cardDatlie",
+    "pages/embedded/embedded",
+    "pages/jionUsers/jionUsers",
+    "pages/wishTalent/wishTalent",
+    "pages/authorization/authorization",
+    "pages/toH5Page/toH5Page",
+    "pages/giveCard/giveCard",
+    "pages/diversions/diversions",
+    "pages/wx-cropper/index",
+    "pages/winningDetails/winningDetails",
+    "pages/winner/winner"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "许愿助手",
+    "enablePullDownRefresh": true,
+    "navigationStyle": "custom",
+    "onReachBottomDistance": 10
+  },
+  "tabBar": {
+    "color": "#666666",
+    "selectedColor": "#333333",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "imgs/tabbar/tabbar_1_normal@2x.png",
+        "selectedIconPath": "imgs/tabbar/tabbar_1_selected@2x.png",
+        "text": "星海"
+      },
+      {
+        "pagePath": "pages/wish/wish",
+        "iconPath": "imgs/tabbar/tabbar_2_normal.png",
+        "selectedIconPath": "imgs/tabbar/tabbar_2_selected@2x.png",
+        "text": "许愿"
+      },
+      {
+        "pagePath": "pages/activeList/activeList",
+        "iconPath": "imgs/tabbar/tabbar_3_normal@2x.png",
+        "selectedIconPath": "imgs/tabbar/tabbar_3_selected@2x.png",
+        "text": "活动"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "iconPath": "imgs/tabbar/tabbar_4_normal@2x.png",
+        "selectedIconPath": "imgs/tabbar/tabbar_4_selected@2x.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "usingComponents": {
+    "cu-custom": "/colorui/components/cu-custom"
+  },
+  "sitemapLocation": "sitemap.json",
+  "navigateToMiniProgramAppIdList": [
+    "wxc6ff026bb9bcf373"
+  ]
+}

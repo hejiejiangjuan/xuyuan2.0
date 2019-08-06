@@ -1,0 +1,35 @@
+/* pages/detailCanvas/detailCanvas.wxss */
+.canvasBtn{
+  display: flex;
+  justify-content: space-between;
+  /* border: 1px solid red; */
+  padding: 0 50rpx;
+}
+.canvasBtn-list{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.39);
+  border-radius: 25px;
+  padding: 20rpx 80rpx;
+  color: white;
+  /* line-height: 46rpx; */
+  
+}
+.wishCanvas{
+  /* border: 1px solid black; */
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+}
+#wishCanvas{
+  /* border: 1px solid red; */
+}
+.myCanvas{
+  display: flex;
+  justify-content: center;
+  /* border: 1px solid red; */
+  padding: 100rpx 50rpx 120rpx 50rpx;
+}

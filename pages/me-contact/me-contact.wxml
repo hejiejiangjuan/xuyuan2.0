@@ -1,0 +1,27 @@
+<!--pages/me-contact/me-contact.wxml-->
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+  <view slot="content">联系我们</view>
+</cu-custom>
+<view class='concatPage'>
+  <view class='servive'>
+    <view class='servive-tile'>客服信息</view>
+    <view class='serviveInfo' wx:for="{{kefuInfo}}" wx:key='index'>
+      <view class='serviveInfo-t fontStylexbgg'>{{item.titleName}}:</view>
+      <view class='serviveInfo-c fontStylexbgg'>{{item.titleValue}}</view>
+      <view class='serviveInfo-b ' bindtap='tel' wx:if='{{item.phoneStatus==1}}'>拨打</view>
+      <view class='serviveInfo-b ' bindtap='copyData' wx:if='{{item.copyStatus==1}}'>复制</view>
+      <view class='serviveInfo-b opctye'>
+        <a href='tel:{{phone}}' ></a>
+      </view>
+    </view>
+  </view>
+
+  <view class='wxCode'>
+    <view class='wxCode-img'>
+      <image src='{{qrcode.titleValue}}' data-src="{{qrcode.titleValue}}" mode="widthFix" bindtap="previewImage"></image>
+    </view>
+    <view class='codeText fontStylelg'>{{qrcode.titleName}}</view>
+  </view>
+  
+
+</view>

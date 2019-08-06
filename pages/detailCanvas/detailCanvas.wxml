@@ -1,0 +1,24 @@
+<!--pages/detailCanvas/detailCanvas.wxml-->
+<cu-custom bgColor="bg-purple" isBack="{{true}}">
+  <view slot="content">分享海报</view>
+</cu-custom>
+<view class='wishCanvas' style=' background: url(https://file.heidouinfo.com/default/wish/wish_background.png)'>
+
+  <view class='myCanvas'>
+    <canvas id='wishCanvas' style="width:{{canvasWidth}}px; height:{{canvasHeight}}px;" canvas-id="detalCanvas"></canvas>
+  </view>
+
+  <view class='canvasBtn' bindtap='saveImg'>
+   
+
+    <view class='canvasBtn-list fontStylexl' bindtap='backFirst'>
+        <text class='cuIcon-homefill iconfon'></text>
+      <text>返回首页</text>
+    </view>
+     <view class='canvasBtn-list fontStylexl'>
+      <text class='cuIcon-picfill iconfon'></text>
+      <text>保存图片</text>
+    </view>
+  </view>
+
+</view>

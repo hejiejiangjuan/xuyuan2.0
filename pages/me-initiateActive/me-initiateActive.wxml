@@ -1,0 +1,38 @@
+<!--pages/me-initiateActive/me-initiateActive.wxml-->
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+  <!-- <view slot="backText">返回</view> -->
+  <view slot="content">发起的活动</view>
+</cu-custom>
+<!-- 下拉刷新动画 -->
+<view class="weui-loadmore" wx:if='{{isRefreshing}}'>
+  <view class="weui-loading"></view>
+  <view class="weui-loadmore-tips">正在刷新...</view>
+</view>
+
+<view class='jion-active' bindtap='evenDetails' wx:for="{{createActivityList}}" wx:key="{{index}}"  id='{{item.id}}' wx:for-index="idx" data-index="{{idx}}">
+  <view class='active-img'>
+    <image mode="aspectFit" src='{{fileServer+item.themeAddr}}'></image>
+  </view>
+  <view class='active-con'>
+    <view class='active-title fontStylexbg'>{{item.activityTheme}}</view>
+    <view class='active-tiem'>
+      <view>{{item.beforeTime}}</view>
+      <view class='bewinning' wx:if='{{item.status==1&&item.openPrize==0}}'>进行中</view>
+      <view wx:else>已结束</view>
+    </view>
+  </view>
+</view>
+
+<!-- 上拉加载 -->
+<view wx:if='{{!isRefreshing}}' class="weui-loadmore">
+  <view wx:if='{{isLoadingMoreData}}'>
+    <view class="weui-loading"></view>
+    <view class="weui-loadmore-tips">正在加载更多...</view>
+  </view>
+  <view wx:elif='{{!isLoadingMoreData&&hasMoreData}}'>
+    <view class="weui-loadmore-tips" bindtap='onReachBottom'>上拉加载更多</view>
+  </view>
+  <view wx:elif='{{!hasMoreData}}'>
+    <view class="weui-loadmore-tips">没有更多内容啦</view>
+  </view>
+</view>

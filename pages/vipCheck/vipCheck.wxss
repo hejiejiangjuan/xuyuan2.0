@@ -1,0 +1,242 @@
+/* pages/vipCheck/vipCheck.wxss */
+
+.vipbg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: white;
+  padding: 0 30rpx 50rpx 30rpx;
+}
+
+.vip-bnner {
+  border-bottom: 1px solid #eee;
+  padding: 60rpx 0 80rpx 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.fontStylexSm {
+  font-size: 24rpx;
+}
+
+.vip-txt {
+  width: 280rpx;
+  font-size: 28rpx;
+  font-family: PingFang-SC-Medium;
+  /* border: 1px solid black; */
+  position: absolute;
+  bottom: -17rpx;
+  padding: 0 15rpx;
+  background: white;
+}
+
+.vip-bnner-img {
+  /* border: 1px solid red; */
+  width: 100%;
+  position: relative;
+  height: 240rpx;
+  /* overflow: hidden; *//* border-radius: 10px 10px 0 0; */
+}
+
+.vip-bnner-img>image {
+  position: absolute;
+  top: 0rpx;
+  left: 0;
+  width: 100%;
+  height: 240rpx;
+}
+
+.vip-bnner-con {
+  height: 240rpx;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40rpx;
+  color: #c8a565;
+}
+
+.vip-bnner-text {
+  /* border: 1px solid red; */
+}
+
+.vip-bnner-title {
+  font-size: 36rpx;
+  font-family: PingFang-SC-Bold;
+  font-weight: bold;
+}
+
+.vip-bnner-text-con {
+  font-size: 28rpx;
+  font-family: PingFang-SC-Medium;
+  opacity: 0.75;
+  margin: 20rpx 0;
+}
+
+.vip-bnner-text-num {
+  font-size: 24rpx;
+  font-family: PingFang-SC-Medium;
+  opacity: 0.5;
+  background: rgba(200, 165, 101, 0.5);
+  width: 200rpx;
+  text-align: center;
+  border-radius: 25px;
+  padding: 2rpx 15rpx;
+}
+
+.vip-bnner-con-img {
+  /* border: 1px solid red; */
+  height: 120rpx;
+  width: 120rpx;
+  position: relative;
+}
+
+.vip-bnner-con-img>image {
+  height: 120rpx;
+  width: 120rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.checkFunction {
+  padding: 50rpx 0;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.checkBtn {
+  /* border: 1px solid black; */
+  width: 50%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 20rpx;
+}
+
+.magin-left {
+  padding-left: 20rpx;
+}
+
+.vipprice {
+  border-top: 1px solid #eee;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+  margin-top: 30rpx;
+  padding-top: 70rpx;
+}
+
+.vipprice-title {
+  padding: 0 15rpx;
+  font-size: 28rpx;
+  font-family: PingFang-SC-Medium;
+  /* border: 1px solid black; */
+  position: absolute;
+  top: -17rpx;
+  background: white;
+}
+
+.vipCheckprice {
+  /* border: 1rpx solid black; */
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+  /* padding: 10rpx 50rpx; *//* margin-top: 50rpx; */
+}
+
+.vipCheckpricelist {
+  /* border: 1rpx solid black; */
+  margin-top: 30rpx;
+  width: 29%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 22rpx;
+  /* padding: 25rpx; */
+  height: 200rpx;
+  border-radius: 10px;
+  background: #f5f5f5;
+}
+
+.vipCheckpricelist1 {
+  margin-left: 22rpx;
+  border: 1rpx solid #ff3c75;
+  margin-top: 30rpx;
+  width: 29%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* padding: 25rpx; */
+  height: 200rpx;
+  border-radius: 10px;
+}
+
+.vipfootSizePr {
+  font-size: 40rpx;
+  font-weight: bold;
+}
+
+.vipCheckpriceNum {
+  color: #ff3c75;
+}
+
+.vip-checkpricetitle {
+  color: black;
+  margin-bottom: 10rpx;
+}
+
+.vip-checkpriceDay {
+  /* border: 1px solid #999; */
+  font-size: 24rpx;
+  border-radius: 25px;
+  padding: 2rpx 15rpx;
+  color: #999;
+  margin-top: 8rpx;
+}
+
+.gouIcon {
+  /* border: 1px solid black; */
+  width: 30rpx;
+  height: 30rpx;
+  position: relative;
+}
+
+.gouIcon>image {
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.prompt {
+  background: white;
+  /* border: 1px solid black; */
+   width: 100%;
+   text-align: center;
+
+}
+
+.promptBg {
+  position: fixed;
+  background: white;
+  bottom:60rpx;
+  /* border: 1px solid black; */
+  height: 100rpx;
+  line-height: 100rpx;
+  display: flex;
+  justify-content: center;
+  width: 92%;
+ 
+}

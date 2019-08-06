@@ -1,0 +1,9 @@
+/* pages/wishLight/wishLight.wxss */
+.light-con-t{
+  display: flex;
+  justify-content: flex-end;
+}
+.light-con-n{
+  color: #333333;
+  margin-bottom: 15rpx;
+}

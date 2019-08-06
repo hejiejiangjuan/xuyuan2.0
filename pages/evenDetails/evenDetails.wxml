@@ -1,0 +1,516 @@
+<!--pages/evenDetails/evenDetails.wxml-->
+<modal show="{{showModal}}" height='60%' bind:cofom="manaGement">
+</modal>
+<cu-custom wx:if='{{fromStatu}}' bgColor="bg-white" isBack="{{true}}">
+  <view class="title-content" slot="content">活动详情</view>
+</cu-custom>
+<view class="backText" wx:if='{{fromStatu==false}}'>
+  <view class="myContent backIcon" catchtap="backPage">
+    <text class="cuIcon-back" ></text>
+    <text>首页</text>
+  </view>
+  <view class="myContent"> 活动详情</view>
+</view>
+
+<view class='detail'>
+<view class="detailbannr-top">
+<view class='detailbannr'>
+    <image mode="aspectFill" src='{{fileServer+activeDetal.themeAddr}}'></image>
+  </view>
+</view>
+  
+  <view class='detail-con'>
+    <view class='detail-all'>
+      <view class='detail-con-title'>{{activeDetal.activityTheme}}</view>
+      <view class='detail-con-nike fontStylexbg'>{{activeDetal.creativityExplain}}</view>
+      <view class='detail-con-tiem' wx:if='{{activeDetal.openPrizeCon == 1}}'>
+        <text>{{activeDetal.openDescribe}}开奖</text>
+      </view>
+      <view class='detail-con-tiem' wx:if='{{activeDetal.openPrizeCon==2}}'>
+        <text>参与者达到{{activeDetal.openDescribe}}人开奖</text>
+      </view>
+      <view class='detail-con-tiem' wx:elif='{{activeDetal.openPrizeCon == 3}}'>
+        <text>发起人手动开奖</text>
+      </view>
+      <view class='wishContentd' wx:if='{{activeDetal.wishcardNum!=null&&activeDetal.wishcardNum>1}}'>
+        <view class='myIcon '>
+          <image src='/imgs/icon/heart.png'></image>
+        </view>
+        <view class='wish-contd'>
+          <text>需要花费</text>
+          <text>{{activeDetal.wishcardNum}}</text>张心愿卡</view>
+      </view>
+      <view class='conditions'>
+        <view class="content conditions-con" wx:if='{{activeDetal.onlyFans==1 }}'>
+          <text class=""></text>
+          <text wx:if='{{activeDetal.onlyFans==1}}'>仅公众号粉丝可参与</text>
+          <!-- <text wx:if='{{activeDetal.wishCondition==2}}'>限女性</text>
+          <text wx:if='{{activeDetal.wishCondition==1}}'>限男性</text>
+          <text wx:if='{{activeDetal.wishCondition==0}}'>不限</text> -->
+        </view>
+      </view>
+
+      <view class='Focus-on' wx:if='{{activeDetal.publicStatus==1 || activeDetal.publicStatus==3}}'>
+        <view class='focus-icon'>
+          <text>
+            <text class="cuIcon-newshot"></text>
+          </text>
+          <text class="">{{activeDetal.miniName}}</text>
+        </view>
+        <view class='publicBtn-con fontStylexl'>
+          <button class="buttonimg publicBtn" open-type='contact' send-message-path='/pages/evenDetails/evenDetails?id={{activeDetal.id}}&kfType=attention' send-message-title="{{activeDetal.activityTheme}}" send-message-img="{{fileServer+activeDetal.themeAddr}}"
+            show-message-card="true">
+            关注公众号
+          </button>
+          <!-- <text>关注共公众号</text> -->
+          <text class="cuIcon-right"></text>
+        </view>
+      </view>
+
+      <view class='reply' wx:if='{{activeDetal.promptMsg}}'>
+        <view class='reply-con'>
+          <text>回复关键字：</text>
+          <text>{{activeDetal.promptMsg}}</text>
+        </view>
+      </view>
+
+      <view class='instructions'>
+        <view class='instructions-con'>本活动说明：{{activeDetal.digest}}</view>
+      </view>
+
+    </view>
+    <view class='initiator'>
+      <view class='initiator-con'>
+        <view class='initiator-name'>
+          <view class="cu-avatar  round" style="background-image:url({{activeDetal.logo}});"></view>
+          <text class='fontStylexbg'>{{activeDetal.miniName}}</text>
+        </view>
+        <view class='initiator-name-t'>活动发起者</view>
+      </view>
+    </view>
+    <view class='fen' wx:if='{{activeDetal.needHelp==1&&activeDetal.helpNum!=null&&activeDetal.isCreatUser==0}}'></view>
+    <!-- 邀请助力 -->
+
+    <view class='power-num' wx:if='{{activeDetal.helpNum!=null&&activeDetal.needHelp==1&&activeDetal.isCreatUser==0}}'>
+      <view class='power-num-myImg'>
+        <view class="cu-avatar lg  round" style="background-image:url({{activeDetal.curUserAvatar}});"></view>
+      </view>
+      <view class='power-num-text fontStylelg'>
+        邀请
+        <text>{{!activeDetal.helpNum?0:activeDetal.helpNum}}</text>位好友助力，即可获得中奖资格哦~</view>
+      <view class='power-share fontStylexbg'>
+        <view class='power-share-btn' data-target="bottomModal" bindtap="{{activeDetal.share==1||activeDetal.isCreatUser==1?'bottomShowModal':'noneShare'}}" >邀请好友参与</view>
+        <!-- <view class='power-share-bton' bindtap="generatePoster">生成海报</view> -->
+      </view>
+      <view class='win-user'>
+        <view class="helpTitle">
+          <text>还差</text>
+          <text>{{activeDetal.helpNum-userHelpList.length}}</text>
+          <text>人助力成功</text>
+        </view>
+
+        <view class='win-user-list' wx:for='{{helpList}}' wx:key='{{index}}' wx:for-item="item">
+          <view class="cu-avatar lg round" style="background-image:url({{item.avatarUrl}});"></view>
+          <view class='win-user-name'>{{item.nickName}}</view>
+        </view>
+
+        <block wx:for='{{imgNum-helpList.length}}' wx:key="index">
+          <view class='win-user-list'>
+            <view class='help-icon'>
+              <text class="cuIcon-peoplefill rightIcon"></text>
+            </view>
+            <view class='win-user-name'>好友</view>
+          </view>
+        </block>
+      </view>
+    </view>
+
+    <view class="winning" wx:if='{{activeDetal.isCreatUser==1&&activeDetal.openPrize==1}}'>
+      <view class="winning-title" bindtap="winner">
+        <text>查看中奖者收货信息({{userCount}}/{{user_prize.length}})</text>
+        <text class="cuIcon-right"></text>
+      </view>
+      <view class="winning-warm">
+        <view class="winning-text">抽奖开奖后，请根据中奖人联系信息于7日内发货</view>
+        <view class="winning-text">若中奖人不满足发奖要求时，建议短信告知</view>
+      </view>
+    </view>
+    <view class='fen' wx:if='{{activeDetal.openPrize==1&&activeDetal.isCreatUser==0}}'></view>
+    <!-- 中奖 -->
+    <!-- wx:if='{{activeDetal.openPrize==1&&activeDetal.has_Prize==1&&isCreatUser==0}}' -->
+    <view class='winningEnd' wx:if='{{activeDetal.openPrize==1&&activeDetal.has_Prize==1&&activeDetal.isCreatUser==0}}'>
+      <view class='myWinning'>
+        <view>
+          <view class='myWinning-title'>恭喜你，达成心愿!</view>
+          <view class='myWinning-nicke'>请尽快联系活动发起者，领取心愿礼单噢~</view>
+        </view>
+        <view class='vip-bnner-con-img'>
+          <image src='/imgs/pageImgs/zj.png'></image>
+        </view>
+      </view>
+      <!-- 心愿类型 -->
+      <!-- currentPrize -->
+      <!--  wx:for='{{activeDetal.currentPrize}}' wx:key='index' wx:for-item="wishList" -->
+      <view class="winning-type-box">
+        <view class='winning-type'>
+          <view class='win-title'>#{{activeDetal.currentPrize.wish_name}}#</view>
+          <view class='userInfoName wimmingList'>
+            <view class='myName'>
+              <view class='myIcon'>
+                <image src='{{fileServer+activeDetal.currentPrize.icon}}'></image>
+              </view>
+              <view class='win-name '>{{activeDetal.currentPrize.prize_name}}</view>
+            </view>
+            <view class='win-num'>
+              <text class="cuIcon-close sm"></text>
+              <text class='fontStylelg'>1</text>
+            </view>
+            <view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class='jionBtn'>
+        <view class='subBtn-box'>
+          <view class='jonSubBtn' bindtap='moreActive'>参与更多心愿活动</view>
+        </view>
+      </view>
+      <view class='increase incPd' bindtap='chooseAddress'>
+        <view class='increaseBtn' bindtap='insert'>
+          <view class='addIcon'>
+            <text class="cuIcon-add rightIcon"></text>
+          </view>
+          <text class='fontSizeLg' wx:if='{{!isUserAddress}}'>填写地址</text>
+          <text class='fontSizeLg' wx:else>已添加地址</text>
+        </view>
+      </view>
+    </view>
+    <!-- wx:if='{{activeDetal.openPrize==1&&activeDetal.has_Prize==0&&isCreatUser==0}}' -->
+    <view class='winningEnd' wx:if='{{activeDetal.openPrize==1&&activeDetal.has_Prize==0&&isCreatUser==0}}'>
+      <view class='myWinning'>
+        <view>
+          <view class='myWinning-title'>真遗憾，没有达成心愿!</view>
+          <view class='myWinning-nicke'>下次再接再历哦~</view>
+        </view>
+        <view class='vip-bnner-con-img'>
+          <image src='/imgs/pageImgs/wzj.png'></image>
+        </view>
+      </view>
+
+      <view class='jionBtn'>
+        <view class='subBtn-box'>
+          <view class='jonSubBtn' bindtap='moreActive'>参与更多心愿活动</view>
+        </view>
+      </view>
+    </view>
+
+
+
+    <!-- 达成心愿 -->
+    <view class='fen' wx:if='{{activeDetal.openPrize==1&&activeDetal.isCreatUser==0}}'></view>
+    <view class='win-type-list' wx:if='{{activeDetal.openPrize==1}}'>
+      <view class='achieve-title'>达成心愿名单</view>
+      <view class='win-box' wx:for='{{activeDetal.activity_wish_list}}' wx:key='index' wx:for-item="prizeWishList">
+        <view class='winning-type winning-type-bg'>
+          <view class='win-center wimmingList'>
+            <view class='myName1'>
+              <view class='myIcon'>
+                <image src='{{fileServer+prizeWishList.icon}}'></image>
+              </view>
+              <view class='win-name '>{{prizeWishList.wishName}}</view>
+            </view>
+            <view class='win-numa'>
+              <text class="cuIcon-close sm"></text>
+              <text class='fontStylelg'>{{prizeWishList.prizeNum}}</text>
+            </view>
+            <view>
+            </view>
+          </view>
+        </view>
+        <view class='win-user'>
+          <view class='win-user-list' wx:for="{{user_prize}}" wx:key='index' wx:for-item="userPrize">
+            <view class="cu-avatar lg  round" style="background-image:url({{userPrize.avatar_url}});"></view>
+            <view class='win-user-name'>{{userPrize.nick_name}}</view>
+          </view>
+        </view>
+      </view>
+
+    </view>
+    <view class='fen' wx:if='{{activeDetal.publicStatus==2 || activeDetal.publicStatus==3||activeDetal.miniStatus==2||activeDetal.miniStatus==3}}'></view>
+    <view class='otherLink' wx:if='{{activeDetal.publicStatus==2 || activeDetal.publicStatus==3||activeDetal.miniStatus==2||activeDetal.miniStatus==3}}'>
+      <view class='other-link-title'>关注我们，了解更多信息</view>
+      <view class='focusOn focusOnCol1' wx:if='{{activeDetal.miniStatus==2||activeDetal.miniStatus==3}}'>
+        <view class='focusIcon'>
+          <text>
+            <text class="cuIcon-newshot"></text>
+          </text>
+          <text class="">{{activeDetal.miniName}}</text>
+        </view>
+        <view class='publicBtn-con fontStylexl' bindtap='toOtherMini'>
+          <button class="buttonimg publicBtn-foot-mini" open-type='contact' send-message-path='/pages/evenDetails/evenDetails?id={{activeDetal.id}}&kfType=tomini' send-message-title="{{activeDetal.activityTheme}}" send-message-img="{{fileServer+activeDetal.themeAddr}}"
+            show-message-card="true">
+            体验小程序
+          </button>
+          <!-- <text>体验小程序</text> -->
+          <text class="cuIcon-right"></text>
+        </view>
+      </view>
+
+      <view class='focusOn focusOnCol' wx:if='{{activeDetal.publicStatus==2 || activeDetal.publicStatus==3}}'>
+        <view class='focus-icon'>
+          <text class=''>
+            <text class="cuIcon-newshot"></text>
+          </text>
+          <text class="">{{activeDetal.miniName}}</text>
+        </view>
+        <view class='publicBtn-con fontStylexl'>
+          <button class="buttonimg publicBtn-foot" open-type='contact' send-message-path='/pages/evenDetails/evenDetails?id={{activeDetal.id}}&kfType=attention' send-message-title="{{activeDetal.activityTheme}}" send-message-img="{{fileServer+activeDetal.themeAddr}}"
+            show-message-card="true">
+            关注公众号
+          </button>
+          <!-- <text>关注公众号</text> -->
+          <text class="cuIcon-right text-grye"></text>
+        </view>
+      </view>
+    </view>
+    <!-- 心愿礼单 -->
+    <view class='fen' wx:if='{{activeDetal.openPrize!=1}}'></view>
+    <view class="winning-type-box" wx:if='{{activeDetal.openPrize!=1}}'>
+      <view class='winning-type'>
+        <view class='wishGive'>心愿礼单</view>
+        <view class='userInfoName wimmingList' wx:for='{{activeDetal.activity_wish_list}}' wx:key='index' wx:for-item="wishGive">
+          <view class='myName'>
+            <view class='myIcon'>
+              <image src='{{fileServer+wishGive.icon}}'></image>
+            </view>
+            <view class='win-name '>{{wishGive.prizeName}}</view>
+          </view>
+          <view class='win-num'>
+            <text class="cuIcon-close sm"></text>
+            <text class='fontStylelg'>{{wishGive.prizeNum}}</text>
+          </view>
+          <view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class='fen'></view>
+    <!-- 活动介绍 -->
+    <view class='active-detail'>
+      <view class='active-detail-title'>活动介绍</view>
+      <view wx:if='{{activeDetal.lead==1}}'>
+        <editor id="editor" class="ql-container"  showImgSize showImgToolbar showImgResize read-only="true" bindready="onEditorReady" >
+      </editor>
+      </view>
+      <view wx:if='{{activeDetal.lead==0}}'>
+        <view class='active-detail-con'>{{activeDetal.detail_content}}</view>
+      </view>
+    </view>
+    <view class='fen'></view>
+    <view class='copy-box' wx:if="{{activeDetal.leadExplain!=null&&activeDetal.leadExplain!='' && activeDetal.publicCommand!=null&&activeDetal.publicCommand!=''}}">
+      <view class='copymodul'>
+        <form>
+          <view class="cu-form-group  fontStylexbg">
+            <view class='copy-title'>{{activeDetal.leadExplain}}</view>
+            <!-- <input placeholder="在此填写引导文案" disabled></input> -->
+          </view>
+        </form>
+        <form>
+          <view class="cu-form-group inputStyle1 inputCenter my-font_color">
+            <view class='copy-con'>{{activeDetal.publicCommand}}</view>
+            <!-- <input style='height:140rpx; color:#C8A565;'></input> -->
+          </view>
+        </form>
+        <view class='copybtn'>
+          <view class='copyBtn-button copyBtn-buttonCol' bindtap="copyPublicCommand">点此一键复制</view>
+        </view>
+      </view>
+    </view>
+    <view class='detail-foot'>
+
+      <view class='detail-jion-num'>
+        <view class='detail-jion-con'>
+          <view class='detail-jion-con1'>共有{{jionUser.length}}人参与</view>
+        </view>
+      </view>
+      <view class='detail-foot-user-img' bindtap='userImg'>
+        <view class="cu-avatar-group">
+          <block wx:for="{{jion_userImg}}" wx:key='index'>
+            <view class="cu-avatar round lg" style="background-image:url({{item.imgAddr}});"></view>
+          </block>
+
+        </view>
+      </view>
+
+      <view class='foot-btn'>
+        <view class='foot-btn-con' bindtap="feedback">意见反馈</view>
+        <view class='foot-btn-con' bindtap="contact">联系我们</view>
+        <view class='foot-btn-con' bindtap="about">关于我们</view>
+        <view class='foot-btn-con' bindtap="report">举报</view>
+      </view>
+    </view>
+    <view class='foot-share fontStylexbgg'>
+      <view class='foot-share-btn' wx:if='{{activeDetal.share==1||activeDetal.isCreatUser==1}}' bindtap="bottomShowModal" data-target="bottomModal">分享给好友</view>
+
+      <view class='foot-jion-bton' bindtap="showPageModal" data-target="Modal" wx:if="{{activeDetal.status==1&&activeDetal.isCreatUser==0 &&activeDetal.has_join==0}}">立即参与</view>
+
+      <view class='foot-jion-bton1' data-target="Modal" wx:elif="{{activeDetal.status==1&&activeDetal.isCreatUser==0 &&activeDetal.has_join==1}}">已参与</view>
+
+      <view class='foot-jion-bton' bindtap='openPrize' wx:elif='{{activeDetal.status==1&&activeDetal.isCreatUser==1&&activeDetal.openPrizeCon == 3&&activeDetal.openPrize==0}}'>开奖</view>
+
+      <view class='foot-jion-bton1' wx:elif='{{activeDetal.status==2&&activeDetal.isCreatUser==1 && activeDetal.openPrizeCon == 3&&activeDetal.openPrize==1}}'>已开奖</view>
+
+      <view class='foot-jion-bton' wx:elif='{{activeDetal.status==1&&activeDetal.isCreatUser==1 && activeDetal.openPrizeCon != 3&&activeDetal.openPrize==0}}'>未开奖</view>
+      <view class='foot-jion-bton' wx:elif='{{activeDetal.status!=1}}'>已过期</view>
+    </view>
+
+
+  </view>
+</view>
+<view class="cu-modal {{modalName=='Modal'?'show':''}} mymodal">
+  <view class="cu-dialog">
+    <view class="action deleIcon " bindtap="hideModal">
+      <text class="cuIcon-close text-grye"></text>
+    </view>
+    <view class="cu-bar  justify-end">
+      <view class="content wishTag-title">提示</view>
+    </view>
+
+    <view class="myInfo" wx:if="{{code==401}}">
+      <view class='myInfo-con fontStylexbg'>你不是公众号粉丝，不能参与该活动</view>
+      <view class='subBtn-box-p'>
+        <button class="buttonimg publicBtn-foot-p" open-type='contact' send-message-path='/pages/evenDetails/evenDetails?id={{activeDetal.id}}&kfType=attention' send-message-title="{{activeDetal.activityTheme}}" send-message-img="{{fileServer+activeDetal.themeAddr}}"
+          show-message-card="true">
+          关注公众号
+        </button>
+      </view>
+    </view>
+
+    <view wx:elif='{{code==403}}'>
+      <view class="padding-xl wishWarm">
+        <text>{{msg}}</text>
+        <!-- <text class="wisNum">{{wishCardNum}}</text>个 -->
+        <!-- <text class="wisNum">{{msg}}</text> -->
+      </view>
+      <view class="cu-bar  justify-center ">
+        <view class='subBtn-box giveCard'>
+          <view class='subBtn' bindtap='togive'>去购买心愿卡</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="myInfo" wx:else>
+      <view class='myInfo-con fontStylexbg'>{{msg}}</view>
+    </view>
+
+  </view>
+<!-- modalNamewin -->
+</view>
+<view class="cu-modal {{'modalNamewin'=='Modal'?'show':''}} mymodal">
+  <view class="cu-dialog">
+    <view class="action deleIcon " bindtap="hideModal">
+      <text class="cuIcon-close text-grye"></text>
+    </view>
+    <view class="cu-bar  justify-end">
+      <view class="content wishTag-title fontStylexbgg">参与成功</view>
+    </view>
+    <view class="myInfo">
+      <view class='mb-info'>
+        <view class='detal-win fontStylexbgg' wx:if='{{activeDetal.openPrizeCon == 2}}'>
+          <text>邀请</text>
+          <text>{{activeDetal.openDescribe}}</text>
+          <text>位好友为我助力即可获得中奖资格哟~</text>
+        </view>
+        <view class='detal-win fontStylexbgg' wx:if='{{activeDetal.openPrizeCon == 1}}'>
+          <text></text>
+          <text>{{activeDetal.openDescribe}}</text>
+          <text>自动开奖</text>
+        </view>
+        <view class='detal-win fontStylexbgg' wx:if='{{activeDetal.openPrizeCon == 3}}'>
+          <text></text>
+          <text>活动发起者手动开奖</text>
+          <text></text>
+        </view>
+        <!-- <view class='mb-info-img'>
+          <image src='http://img2.imgtn.bdimg.com/it/u=1718395925,3485808025&fm=26&gp=0.jpg'></image>
+        </view> -->
+
+        <view class='mb-btn fontStylexbgg'>
+          <view class='power-share-btn' bindtap="{{activeDetal.share==1||activeDetal.isCreatUser==1?'bottomShowModal':'noneShare'}}" data-target="bottomModal">分享给好友</view>
+          <view class='power-share-bton' bindtap='detailsCanvas'>生成海报</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>
+
+<!-- 底部模态框 -->
+<view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="mybg">
+      <view class='btn-share'>
+        <view class='btn-share-line'>
+          <view class='btn-share-text fontStylelg'>分享至</view>
+        </view>
+      </view>
+      <view class='my-btn-icon'>
+        <view class='iconList'>
+          <button class='buttonimg share-name' open-type='share'>
+            <view class='left-icon bgcol1'>
+              <text class="cuIcon-weixin"></text>
+            </view>
+            <view class='share-name'>微信好友</view>
+          </button>
+        </view>
+        <view class='iconList' bindtap='generatePoster'>
+          <view class='left-icon bgcol2'>
+            <text class="cuIcon-picfill"></text>
+          </view>
+          <view class='share-name'>生成海报</view>
+        </view>
+        <view class='iconList' bindtap='embedded'>
+          <view class='left-icon bgcol3'>
+            <text class="cuIcon-peoplelist"></text>
+          </view>
+          <view class='share-name'>嵌入公众号</view>
+        </view>
+        <view class='iconList'>
+          <button class='buttonimg share-name' open-type='contact' send-message-path='/pages/evenDetails/evenDetails?id={{activeDetal.id}}&kfType=copyLink' send-message-title="{{activeDetal.activityTheme}}" send-message-img="{{fileServer+activeDetal.themeAddr}}"
+            show-message-card="true">
+            <view class='left-icon bgcol4'>
+              <text class="cuIcon-share"></text>
+            </view>
+            <view class='share-name'>复制链接</view>
+          </button>
+        </view>
+      </view>
+    </view>
+    <view class="bg-white">
+      <view class='myCancel fontStylexbgg' bindtap="hideModal">
+        <text>取消</text>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="cu-modal {{modalName=='giveModal'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">提示</view>
+      <view class="action" bindtap="hideModal">
+        <!-- <text class="cuIcon-close text-red"></text> -->
+      </view>
+    </view>
+    <view class="padding-xl">
+      <text>iOS系统用户请转到安卓系统购买</text>
+    </view>
+    <view class="cu-bar  justify-center">
+      <view class="action">
+        <!-- <button class="cu-btn line-green text-green" bindtap="hideModal">取消</button> -->
+        <button class="cu-btn line-pink margin-left" bindtap="hideModal">好的！</button>
+
+      </view>
+    </view>
+  </view>
+</view>

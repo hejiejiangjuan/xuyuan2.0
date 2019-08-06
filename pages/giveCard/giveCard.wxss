@@ -1,0 +1,14 @@
+/* pages/checkprice/checkprice.wxss */
+.priceBtn{
+  padding: 0 50rpx;
+  margin: 40rpx 0;
+}
+
+
+
+.checkBg{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: white;
+}

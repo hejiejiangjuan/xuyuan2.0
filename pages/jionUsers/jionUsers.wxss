@@ -1,0 +1,32 @@
+/* pages/jionUsers/jionUsers.wxss */
+.userInfmg{
+  margin-top: 100rpx;
+  height: 80rpx;
+}
+.userImgBg{
+  position: absolute;
+  top: 0;
+  background: white;
+  width: 100%;
+  height: 100%;
+  padding: 110rpx  48rpx 110rpx 48rpx;
+}
+.detail-jion-con2 {
+  padding: 0 20rpx;
+  font-size: 32rpx;
+  color: #333;
+  position: absolute;
+  bottom: -23rpx;
+  background: white;
+  left: 148rpx;
+}
+.margin-user{
+  margin: 15rpx 10rpx;
+  
+}
+.userImg-box{
+  display: flex;
+  justify-content:flex-start;
+  flex-wrap: wrap;
+  width:100%;
+}

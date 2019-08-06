@@ -1,0 +1,335 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false,
+		"checkInvalidKey": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.7.7",
+	"appid": "wx5b681c27811cf32f",
+	"projectname": "wish",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 40,
+			"list": [
+				{
+					"id": -1,
+					"name": "首页",
+					"pathName": "pages/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 1,
+					"name": "星海",
+					"pathName": "pages/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "许愿",
+					"pathName": "pages/wish/wish",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "我的",
+					"pathName": "pages/me/me",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 4,
+					"name": "添加活动",
+					"pathName": "pages/active/active",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "富文本编辑",
+					"pathName": "pages/richtext/richtext",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/me/me",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我要上首-选择按钮",
+					"pathName": "pages/theFirst/theFirst",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我要上首-心愿",
+					"pathName": "pages/wishFirst/wishFirst",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我要上首-金额选择",
+					"pathName": "pages/checkprice/checkprice",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的-许下的心愿",
+					"pathName": "pages/me-makewish/me-makewish",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的-参与的活动",
+					"pathName": "pages/me-activeJion/me-activeJion",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的-发起的活动",
+					"pathName": "pages/me-initiateActive/me-initiateActive",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的心愿卡",
+					"pathName": "pages/wishCard/wishCard",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 14,
+					"name": "领取心愿卡",
+					"pathName": "pages/sendCard/sendCard",
+					"query": "recordId=1",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "常见问题",
+					"pathName": "pages/problems/problems",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "高级版",
+					"pathName": "pages/vipCheck/vipCheck",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "活动详情",
+					"pathName": "pages/evenDetails/evenDetails",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "参与活动",
+					"pathName": "pages/activeJion/activeJion",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "联系我们",
+					"pathName": "pages/me-contact/me-contact",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "问题反馈",
+					"pathName": "pages/me-feedback/me-feedback",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "消息通知",
+					"pathName": "pages/me-message/me-message",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "活动",
+					"pathName": "pages/activeList/activeList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 23,
+					"name": "许愿成功canvas页面",
+					"pathName": "pages/wishSuccess/wishSuccess",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "高级版分享生成canvas",
+					"pathName": "pages/detailCanvas/detailCanvas",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "关于我们",
+					"pathName": "pages/me-aboutUs/me-aboutUs",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "系统消息",
+					"pathName": "pages/systemMessage/systemMessage",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "中将通知",
+					"pathName": "pages/notification/notification",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "心愿点亮",
+					"pathName": "pages/wishLight/wishLight",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 29,
+					"name": "领取心愿卡页面",
+					"pathName": "pages/sendCard/sendCard",
+					"query": "recordId=1",
+					"scene": null
+				},
+				{
+					"id": 30,
+					"name": "嵌入公众号文章canvas",
+					"pathName": "pages/embedded/embedded",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "心愿卡明细",
+					"pathName": "pages/cardDatlie/cardDatlie",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "参与用户",
+					"pathName": "pages/jionUsers/jionUsers",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "心愿达人",
+					"pathName": "pages/wishTalent/wishTalent",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "参与助力人数的canvas",
+					"pathName": "pages/detailCanvas/detailCanvas",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "申请授权",
+					"pathName": "pages/authorization/authorization",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "购买心愿卡",
+					"pathName": "pages/giveCard/giveCard",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "裁剪",
+					"pathName": "pages/wx-cropper/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "中奖者信息",
+					"pathName": "pages/winner/winner",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "中奖信息",
+					"pathName": "pages/winningDetails/winningDetails",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/richtext/richtext",
+					"pathName": "pages/richtext/richtext",
+					"query": "",
+					"scene": null
+				}
+			]
+		}
+	}
+}

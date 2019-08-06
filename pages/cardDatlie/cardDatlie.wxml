@@ -1,0 +1,49 @@
+<!--pages/cardDatlie/cardDatlie.wxml-->
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+  <view slot="content">心愿卡明细</view>
+</cu-custom>
+<view class='cardDatlie'>
+  <view class='cardDatlie-num fontStylexl'>
+    <text>共获得</text>
+    <text>{{obtainWish}}</text>
+    <text>张</text>
+  </view>
+  <view class='cardDatlie-num'>
+    <text>共花费</text>
+    <text>{{useWish}}</text>
+    <text>张</text>
+  </view>
+</view>
+
+<view class='my-cardDatlie' wx:for='{{wishcardRecord}}' wx:key='index'>
+  <view class='my-tab my-tab-bg' wx:if='{{item.changeType==2}}'>支</view>
+  <view class='my-tab my-tab-bg1' wx:else>收</view>
+  <view class='my-cardDatlie-con'>
+    <view class='my-cardDatlie-list'>
+      <view class='my-cardDatlie-con-t fontStylexbgg' wx:if='{{item.fromType==1}}'>充值</view>
+      <view class='my-cardDatlie-con-t fontStylexbgg' wx:elif='{{item.fromType==2}}'>赠送</view>
+      <view class='my-cardDatlie-con-t fontStylexbgg' wx:elif='{{item.fromType==3}}'>参加活动</view>
+      <view class='my-cardDatlie-con-t fontStylexbgg' wx:elif='{{item.fromType==4}}'>许下心愿</view>
+      <view class='my-cardDatlie-con-t fontStylexbgg' wx:elif='{{item.fromType==5}}'>领取</view>
+      <view class='my-cardDatlie-time'>{{item.changeTime}}</view>
+    </view>
+    <view class='out-in' wx:if='{{item.changeType==2}}'>-{{item.changeNum}}</view>
+    <view class='out-in' wx:else>
+      <view>+{{item.changeNum}}</view>
+      <view class="failure" wx:if='{{item.status==2}}'>已失效</view>
+    </view>
+  </view>
+</view>
+
+<view wx:if='{{!isRefreshing}}' class="weui-loadmore">
+  <view wx:if='{{isLoadingMoreData}}'>
+    <view class="weui-loading"></view>
+    <view class="weui-loadmore-tips">正在加载更多...</view>
+  </view>
+  <view wx:elif='{{!isLoadingMoreData&&hasMoreData}}'>
+    <view class="weui-loadmore-tips" bindtap='onReachBottom'>上拉加载更多</view>
+  </view>
+  <view wx:elif='{{!hasMoreData}}'>
+    <view class="weui-loadmore-tips">没有更多内容啦</view>
+  </view>
+</view>

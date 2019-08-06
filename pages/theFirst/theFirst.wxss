@@ -1,0 +1,41 @@
+/* pages/theFirst/theFirst.wxss */
+.first-card{
+/* border: 1px solid black; */
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+padding: 30rpx 50rpx;
+margin-top: 10rpx;
+}
+.myCard{
+  /* border: 1px solid black; */
+  border-radius: 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  width: 100%;
+  color: white;
+  font-size: 40rpx;
+  margin-top: 60rpx;
+  padding: 60rpx 0;
+}
+.myCardBg{
+background:linear-gradient(-90deg,rgba(255,82,78,1),rgba(255,162,86,1));
+}
+.myCardBg1{
+background:linear-gradient(-90deg,rgba(125,87,233,1),rgba(98,164,245,1));
+}
+.first-icn{
+font-size: 50rpx;
+/* border: 1px solid black; */
+width:100rpx;
+height:100rpx;
+text-align: center;
+line-height: 100rpx;
+border-radius: 50%;
+background: rgba(0, 0, 0, 0.178);
+margin: 20rpx;
+
+
+}

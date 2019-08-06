@@ -1,0 +1,54 @@
+@import "./assets/weui.wxss";
+@import "./assets/iconfont.wxss"
+
+.wrapper {
+  padding: 5px;
+}
+.jion-btn {
+  width: 209rpx;
+height: 92rpx;
+text-align: center;
+line-height: 85rpx;
+border-radius: 25px;
+background: linear-gradient(90deg, rgba(255, 61, 75, 1), rgba(255, 60, 158, 1));
+box-shadow: 0px 10px 30px 0px rgba(255, 60, 140, 0.3);
+color: white;
+font-size: 40rpx;
+top: 86rpx;
+
+}
+.iconfont {
+  display: inline-block;
+  padding: 8px 8px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.toolbar {
+  box-sizing: border-box;
+  /* border: 1px solid #ccc; */
+  border-bottom: 0;
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+}
+
+
+.ql-container {
+  display: block;
+  box-sizing: border-box;
+  padding: 12px 15px;
+  width: 100%;
+  min-height: 30vh;
+  height: auto;
+  /* border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc; */
+  background: #fff;
+  margin-top: 20px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.ql-active {
+  color: #06c;
+}

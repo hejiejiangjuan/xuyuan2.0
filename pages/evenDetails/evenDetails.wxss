@@ -1,0 +1,740 @@
+/* pages/evenDetails/evenDetails.wxss */
+.backText {
+  /* border: 1px solid black; */
+  height: 140rpx;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 46rpx;
+  font-size: 34rpx;
+  color: #333;
+  background: white;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+}
+
+.myContent {
+  /* border: 1px solid black; */
+  width: 30%;
+  text-align: center;
+}
+
+.backIcon {
+  text-align: left;
+  padding-left: 40rpx;
+  z-index: 100;
+}
+.ql-container {
+  display: block;
+  box-sizing: border-box;
+  padding: 12px 15px;
+  width: 100%;
+  min-height: 10vh;
+  height: auto;
+  /* border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc; */
+  background: #fff;
+  margin-top: 20px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+.publicBtn{
+  background: white;
+  border: none;
+  font-size: 26rpx;
+  /* position: static; */
+  padding-right: 10rpx;
+  color: #4895f4;
+ 
+}
+.publicBtn-foot{
+  background: #f5f5f5;
+  border: none;
+  font-size: 26rpx;
+  /* position: static; */
+  padding-right: 10rpx;
+  color: #4895f4;
+ 
+}
+.publicBtn-foot-mini{
+  background: #f5f5f5;
+  border: none;
+  font-size: 26rpx;
+  /* position: static; */
+  padding-right: 10rpx;
+  color: #31bd79;
+}
+.winning-type-box{
+  /* border: 1px solid black; */
+  padding-bottom: 50rpx;
+  background: white;
+}
+.publicBtn-con{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.detail {
+  position: relative;
+}
+.detailbannr-top {
+  padding: 0 30rpx;
+  background: white;
+}
+
+
+
+.detail-con {
+  background: white;
+  /* position: absolute; */
+  top: 406rpx;
+  width: 100%;
+  /* border-radius: 20px 20px 0 0; */
+}
+
+.detail-all {
+  padding: 40rpx 40rpx 0 40rpx;
+}
+
+.helpTitle{
+  text-align: center;
+  color: #999999;
+  font-size: 24rpx;
+  /* border: 1px solid black; */
+  width: 100%;
+  margin-bottom: 50rpx;
+}
+.helpTitle>text:nth-child(2){
+color: #FF3C75
+}
+
+
+
+.Focus-on {
+  border: 1px solid #4895f4;
+  padding: 10rpx 25rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 3px;
+  color: #4895f4;
+}
+
+.focus-icon>text:first-child {
+  /* border: 1px solid black; */
+  padding: 10rpx 12rpx;
+  border-radius: 50%;
+  background: #4895f4;
+  color: white;
+}
+
+.focusIcon>text:first-child {
+  /* border: 1px solid black; */
+  padding: 10rpx 12rpx;
+  border-radius: 50%;
+  background: #31bd79;
+  color: white;
+}
+
+.focusIcon>text:last-child {
+  margin-left: 20rpx;
+  font-size: 34rpx;
+  font-family: PingFang-SC-Bold;
+  font-weight: bold;
+}
+
+.focus-icon>text:last-child {
+  margin-left: 20rpx;
+  font-size: 28rpx;
+  font-family: PingFang-SC-Bold;
+  font-weight: bold;
+}
+
+.reply {
+  /* border: 1px solid black; */
+  padding: 30rpx 0;
+}
+
+.reply-con {
+  background: #f5f5f5;
+  padding: 20rpx;
+  border-radius: 3px;
+  font-size: 24rpx;
+}
+
+.reply-con>text:first-child {
+  color: #333;
+}
+
+.reply-con>text:last-child {
+  color: #4895f4;
+}
+
+instructions {
+  padding: 5rpx 0 30rpx 0;
+}
+
+.instructions-con {
+  background: #fff6e7;
+  color: #937d58;
+  padding: 30rpx;
+  border-radius: 3px;
+}
+
+.initiator {
+  background: white;
+  padding-top: 40rpx;
+}
+
+.initiator-con {
+  border-top: 1px solid #eee;
+  padding: 35rpx 40rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.initiator-name>text {
+  padding: 0 20rpx;
+}
+
+.initiator-name-t {
+  color: #999;
+  font-size: 26rpx;
+  font-weight: bold;
+}
+
+.myWinning {
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 0;
+}
+
+.myWinning-title {
+  font-size: 48rpx;
+  font-family: PingFang-SC-Bold;
+  font-weight: bold;
+  color: #333;
+}
+
+.myWinning-nicke {
+  font-size: 28rpx;
+  font-family: PingFang-SC-Medium;
+  color: #999;
+  padding: 20rpx 0;
+}
+
+.winningEnd {
+  padding: 0 40rpx;
+}
+.incPd{
+  padding-bottom: 20rpx;
+}
+
+.winning-type {
+  /* border: 1px solid black; */
+  padding: 0 40rpx;
+}
+
+.wimmingList {
+  /* border: 1px solid red; */
+  padding: 10rpx 30rpx;
+  background: #f4effa;
+  border-radius: 3px;
+  margin-top: 20rpx;
+}
+
+.win-name {
+  color: #7436c1;
+  font-size: 28rpx;
+  font-family: PingFang-SC-Medium;
+  padding: 10rpx 20rpx;
+}
+
+.win-num {
+  font-size: 24rpx;
+  font-family: PingFang-SC-Medium;
+  padding: 10rpx 0;
+  color: #333;
+  width: 23%;
+  text-align: right;
+}
+
+.win-title {
+  font-size: 32rpx;
+  font-family: PingFang-SC-Medium;
+  color: #7436c1;
+  padding: 15rpx 0;
+}
+
+.jionBtn {
+  padding: 10rpx 100rpx 0rpx 100rpx;
+}
+.jonSubBtn {
+  width: 99%;
+  text-align: center;
+  /* border: 1px solid black; */
+  border-radius: 25px;
+  color: white;
+  padding: 20rpx 0;
+  font-size: 36rpx;
+  /* margin-top: 60rpx; */
+  background: linear-gradient(90deg, rgba(255, 61, 75, 1), rgba(255, 60, 158, 1));
+}
+
+.win-type-list {
+  /* border: 1px solid black; */
+  padding: 40rpx;
+}
+
+.win-center {
+  display: flex;
+  justify-content: center;
+}
+
+.myName1 {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.winning-type-bg {
+  background: #f4effa;
+  border-radius: 8px 8px 0 0;
+}
+
+.achieve-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  padding-bottom: 10rpx;
+}
+
+.win-numa {
+  font-size: 24rpx;
+  font-family: PingFang-SC-Medium;
+  padding: 10rpx 0;
+  color: #7436c1;
+}
+
+.win-user {
+  background: #fafafa;
+  padding: 40rpx 7rpx;
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.win-user-list {
+  /* border: 1px solid black; */
+  box-sizing: border-box;
+  width: 145rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10rpx;
+}
+
+.win-user-name {
+  /* border: 1px solid black; */
+  padding: 10rpx 0;
+  font-size: 26rpx;
+  color: #999;
+  width:110rpx;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.win-box {
+  margin-top: 20rpx;
+}
+
+.otherLink {
+  /* border: 1px solid black; */
+  padding: 40rpx;
+}
+
+.other-link-title {
+  font-size: 28rpx;
+  font-family: PingFang-SC-Bold;
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 40rpx;
+  border-bottom: 1px dashed #eee;
+  color: #666;
+}
+
+.focusOn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 25px;
+  background: #f5f5f5;
+  margin-top: 25rpx;
+  padding:20rpx 40rpx;
+}
+
+.focusOnCol {
+  color: #4895f4;
+}
+
+.focusOnCol1 {
+  color: #31bd79;
+}
+
+.iconbg {
+  background: #31bd79;
+}
+
+.copyBtn-buttonCol {
+  background: #c8a565;
+  color: white;
+}
+
+.copy-con {
+  color: #c8a565;
+  /* border: 1px solid black;s */
+  height: 140rpx;
+  width: 100%;
+  line-height: 140rpx;
+  font-size: 34rpx;
+}
+
+.copy-title {
+  font-size: 34rpx;
+  color: #666;
+  text-align: center;
+  width: 100%;
+}
+
+.copy-box {
+  padding: 0 40rpx 40rpx 40rpx;
+}
+
+.active-detail {
+  padding: 40rpx;
+}
+
+.active-detail-title {
+  color: #333;
+  font-size: 28rpx;
+  font-weight: bold;
+  padding-bottom: 40rpx;
+}
+
+.active-detail-con {
+  color: #666;
+  font-size: 32rpx;
+  line-height: 48rpx;
+}
+
+.active-detail-img {
+  margin: 20rpx 0;
+}
+
+.active-detail-img>image {
+  width: 100%;
+}
+
+.detail-foot {
+  background: whitesmoke;
+  padding: 100rpx 50rpx 180rpx 50rpx;
+}
+
+
+
+.detail-foot-user-img {
+  padding-top: 50rpx;
+}
+
+.foot-btn {
+  display: flex;
+  justify-content: center;
+  padding-top:50rpx;
+}
+
+.foot-btn-con {
+  padding: 0 20rpx;
+  color: #bbb;
+  font-size: 30rpx;
+}
+
+.foot-btn-con:nth-child(2) {
+  border-right: 1px solid #bbb;
+  border-left: 1px solid #bbb;
+}
+.foot-btn-con:nth-child(3) {
+  border-right: 1px solid #bbb;
+}
+
+.power-num {
+  /* border: 1px solid black; */
+  padding: 40rpx;
+}
+
+.power-num-myImg {
+  display: flex;
+  justify-content: center;
+}
+
+.power-num-text {
+  color: #999999;
+  text-align: center;
+  padding: 30rpx 0;
+}
+
+.power-num-text>text {
+  color: #ff3c75;
+}
+
+.power-share {
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: space-around;
+  padding: 50rpx 60rpx 50rpx 60rpx;
+}
+
+.power-share-btn {
+  /* border: 1px solid red; */
+  background: #ff3c75;
+  color: white;
+  border-radius: 25px;
+  padding: 15rpx 40rpx;
+}
+
+.power-share-bton {
+  border: 1px solid #ff3c75;
+  color: #ff3c75;
+  border-radius: 25px;
+  padding: 15rpx 40rpx;
+}
+
+.help-icon {
+  /* border: 1px solid black; */
+  width: 100rpx;
+  height: 100rpx;
+  font-size: 40rpx;
+  line-height: 100rpx;
+  text-align: center;
+  border-radius: 50%;
+  background: #eee;
+  color: white;
+}
+
+.foot-share {
+  /* border: 1px solid black; */
+  padding: 30rpx 50rpx;
+  display: flex;
+  justify-content: space-around;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: white;
+}
+
+.foot-share-btn {
+  /* border: 1px solid red; */
+  color: #ff3c75;
+  background: white;
+  box-shadow: 0px 0px 5px rgba(51, 51, 51, 0.377);
+  width: 45%;
+  border-radius: 25px;
+  text-align: center;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+
+.foot-share-bton {
+  border: 1px solid #eee;
+  width: 45%;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 25px;
+  text-align: center;
+}
+
+.foot-share-bton>text:nth-child(2) {
+  color: #ff3c75;
+}
+
+.foot-jion-bton {
+  /* border: 1px solid #eeeeee; */
+  width: 45%;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 25px;
+  text-align: center;
+  background: #ff3c75;
+  color: white;
+}
+.foot-jion-bton1 {
+  /* border: 1px solid #eeeeee; */
+  width: 45%;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 25px;
+  text-align: center;
+  background: #999999;
+  color: white;
+}
+
+.myInfo-con {
+  color: #999;
+  padding: 30rpx 0 0 10rpx;
+}
+
+.detal-win {
+  color: #999;
+  line-height: 48rpx;
+  width: 60%;
+  text-align: center;
+  /* border: 1px solid black; */
+}
+
+.mb-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.detal-win>text:nth-child(2) {
+  color: #ff3c75;
+}
+
+.mb-info-img {
+  /* border: 1px solid black; */
+  width: 70%;
+  margin: 30rpx 0;
+}
+
+.mb-btn {
+  width: 100%;
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: space-between;
+  padding: 0 50rpx;
+  margin-top: 120rpx;
+}
+
+.btn-share {
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: center;
+}
+
+.btn-share-line {
+  border: 1px solid #eee;
+  width: 50%;
+  position: relative;
+}
+
+.btn-share-text {
+  color: #999;
+  position: absolute;
+  top: -19rpx;
+  left: 100rpx;
+  padding: 0 20rpx;
+  background: white;
+  /* border: 1px solid black; */
+}
+
+.mybg {
+  background: white;
+ padding: 60rpx 40rpx 50rpx 40rpx;
+ margin-bottom: 20rpx;
+}
+
+.myCancel {
+  display: flex;
+  justify-content: center;
+  padding: 40rpx;
+  color: #333;
+}
+
+.my-btn-icon {
+  /* border: 1px solid black; */
+  margin-top: 30rpx;
+  display: flex;
+  justify-content: space-between;
+  margin: 60rpx 0 0 0;
+}
+
+/* 大icon */
+
+.iconList {
+  /* border: 1px solid black; */
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 24%;
+}
+
+.share-name {
+  font-size: 26rpx;
+  color: #666;
+  padding:  0;
+  background: white;
+   /* border: 1px solid black; */
+}
+.buttonimg:after{ border: none; } 
+.bgcol1{
+ background:  #15CF98;
+}
+.bgcol2{
+ background:  #FA6E6E;
+}
+.bgcol3{
+ background:  #5C98FB;
+}
+.bgcol4{
+ background:  #FDCC39;
+}
+.subBtn-box-p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+   /* border: 1px solid black; */
+   margin-top: 80rpx;
+}
+.publicBtn-foot-p{
+  background:linear-gradient(90deg,rgba(255,61,75,1),rgba(255,60,158,1));
+  width: 100%;
+  border: none;
+  font-size: 34rpx;
+ color: white;
+  padding-right: 10rpx;
+}
+.winning-title{
+  display: flex;
+  justify-content: space-between;
+  font-size: 28rpx;
+  color: #333333;
+   padding: 30rpx 0;
+   border-bottom: 1px solid #eeeeee;
+}
+.winning{
+  /* border: 1px solid black; */
+  padding: 0rpx 30rpx;
+}
+.winning-text{
+  color: #999999;
+  font-size: 24rpx;
+}
+.winning-warm{
+  padding: 20rpx 0;
+}
+.wishGive{
+  /* border: 1px solid black; */
+  padding:20rpx 0;
+  font-size:28rpx;
+  font-weight: bold;
+  color: #333333; 
+}

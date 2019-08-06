@@ -1,0 +1,25 @@
+<!--pages/embedded/embedded.wxml-->
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+  <view slot="content">嵌入公众号文章</view>
+</cu-custom>
+<view class='myCanvas'>
+  <canvas id='myCanvas' style="width: {{canvasWidth}}px; height:{{canvasHeight}}px;" canvas-id="publicCanvas"></canvas>
+</view>
+<view class='canvasBtn'>
+  <view class='canvas-btn' bindtap='saveImg'>保存图片</view>
+</view>
+<view class='copyBox'>
+  <view class='copyCon'>
+    <view class='copyApp'>
+      <text>AppID：</text>
+      <text class='copyLink'>wxa142de562c1bcb7d</text>
+      <view class='copyBtn' bindtap='copyApp'>复制</view>
+    </view>
+    <view class='copyApp copyPage'>
+      <text>PagePath：</text>
+      <text class='copyLink'>pages/evenDetails/evenDetails?id={{activeId}}</text>
+      <view class='copyBtn' bindtap='copyPage'>复制</view>
+    </view>
+  </view>
+</view>
+<view class='publicText fontStylexl'>如何嵌入共众号文章?</view>

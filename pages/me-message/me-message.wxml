@@ -1,0 +1,51 @@
+<!--pages/me-message/me-message.wxml-->
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+  <view slot="content">消息通知</view>
+</cu-custom>
+<view class='megPage'>
+  <view class='meglit' bindtap='systemMessage'>
+    <view class='left-icon left-info-bg'>
+      <text class="cuIcon-settingsfill"></text>
+    </view>
+    <view class='right-con'>
+      <view class='center-con'>
+        <view class='center-con-title'>系统消息</view>
+        <view class='center-con-nike'>平台推送消息</view>
+      </view>
+      <view class='right-icon'>
+        <view class="cu-tag round bg-pink sm mymargin-right" wx:if='{{system_msg > 0}}'>{{system_msg}}</view>
+        <text class="cuIcon-right text-grey"></text>
+      </view>
+    </view>
+  </view>
+  <view class='meglit' bindtap='notification'>
+    <view class='left-icon left-info-bag'>
+      <text class="cuIcon-upstagefill"></text>
+    </view>
+    <view class='right-con'>
+      <view class='center-con'>
+        <view class='center-con-title'>中奖通知</view>
+        <view class='center-con-nike'>参与活动的中奖结果</view>
+      </view>
+      <view class='right-icon'>
+        <view class="cu-tag round bg-pink sm mymargin-right" wx:if='{{prize_msg > 0}}'>{{prize_msg}}</view>
+        <text class="cuIcon-right text-grey" ></text>
+      </view>
+    </view>
+  </view>
+  <view class='meglit' bindtap='wishLight'>
+    <view class='left-icon left-info-bga'>
+      <text class="cuIcon-info"></text>
+    </view>
+    <view class='right-con'>
+      <view class='center-con'>
+        <view class='center-con-title'>心愿点亮</view>
+        <view class='center-con-nike'>许下的心愿被点亮统计</view>
+      </view>
+      <view class='right-icon' >
+        <view class="cu-tag round bg-pink sm mymargin-right" wx:if='{{wish_msg > 0}}'>{{wish_msg}}</view>
+        <text class="cuIcon-right text-grey"></text>
+      </view>
+    </view>
+  </view>
+</view>

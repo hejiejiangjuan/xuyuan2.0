@@ -1,0 +1,69 @@
+/* pages/cardDatlie/cardDatlie.wxss */
+.cardDatlie{
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: flex-start;
+  padding: 30rpx 10rpx;
+}
+.cardDatlie-num{
+  color: #999999;
+  padding: 0 20rpx;
+}
+.cardDatlie-num>text:nth-child(2){
+  color: #FF5A46;
+}
+.my-cardDatlie{
+  display: flex;
+  justify-content: space-between;
+  padding: 30rpx;
+  border-bottom: 1px solid #eeeeee;
+  background: white;
+}
+.my-cardDatlie-con{
+   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 82%;
+  /* border: 1px solid black; */
+}
+.my-tab{
+  width: 90rpx;
+  height: 90rpx;
+  /* border: 1px solid black; */
+  border-radius: 50%;
+  text-align: center;
+  line-height: 90rpx;
+  font-size:40rpx; 
+  color: white;
+}
+
+.my-cardDatlie-time{
+  font-size: 26rpx;
+  color: #999999;
+}
+.out-in{
+  font-size: 44rpx;
+  /* border: 1px solid red; */
+  text-align: center;
+}
+.my-tab-bg{
+background:  #6FA2FF;
+}
+.my-tab-bg1{
+background:  #FF6F6F;
+}
+.my-cardDatlie-list{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.myColor{
+color: #FF6F6F;
+}
+.failure{
+  width: 100%;
+  border: 1px solid #eeeeee;
+  font-size: 24rpx;
+  border-radius: 3px;
+  color: #999999;
+}

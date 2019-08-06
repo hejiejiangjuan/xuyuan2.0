@@ -1,0 +1,54 @@
+/* pages/me-cooperation/me-cooperation.wxss */
+
+/* pages/problems/problems.wxss */
+
+.pro-title {
+  margin-left: 10rpx;
+  font-size: 28rpx;
+  color: #000;
+  font-weight: bold;
+  width: 90%;
+  /* border: 1px solid black; */
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.openBtnp {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* border: 1px solid black; */
+  width: 25%;
+  color: #2f7bd1;
+  font-family: PingFang-SC-Medium;
+}
+
+.storyConp {
+  color: #666;
+  font-size: 24rpx;
+  font-family: PingFang-SC-Medium;
+  line-height: 48rpx;
+  margin: 20rpx 0;
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.magin-top {
+  margin-top: 30rpx;
+}
+
+.pro-con {
+  /* border: 1px solid black; */
+  padding: 0 30rpx;
+  margin-top: 30rpx;
+}

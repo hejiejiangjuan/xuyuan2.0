@@ -1,0 +1,67 @@
+<!--pages/checkprice/checkprice.wxml-->
+<cu-custom bgColor="bg-pink" isBack="{{true}}">
+  <view slot="backText"></view>
+  <view slot="content">我要上首页</view>
+</cu-custom>
+
+
+
+<view class='checkBg'>
+  <view class="homePromote-list">
+    <view class="homePromote">首页推广</view>
+    <view class="homeThame">已有近万名专业品牌营销者，支持:</view>
+    <view class="Promote-all">
+
+      <view class="Promote-list">
+        <view class="Promote-icon">
+          <image src="/imgs/icon/gou.png"></image>
+          <text>流畅稳定向</text>
+        </view>
+        <view>
+          <view class="prompt-instructions">流畅稳定向首页自助福利</view>
+        </view>
+      </view>
+      <view class="Promote-list">
+        <view class="Promote-icon">
+          <image src="/imgs/icon/gou.png"></image>
+          <text>流畅稳定向</text>
+        </view>
+        <view>
+          <view class="prompt-instructions">流畅稳定向首页自助福利</view>
+        </view>
+      </view>
+      <view class="Promote-list">
+        <view class="Promote-icon">
+          <image src="/imgs/icon/gou.png"></image>
+          <text>流畅稳定向</text>
+        </view>
+        <view>
+          <view class="prompt-instructions">流畅稳定向首页自助福利</view>
+        </view>
+      </view>
+
+    </view>
+  </view>
+  <view class="prompt" wx:if='{{phoneStatus}}'>由于相关规范，iPhone用户暂时不可在小程序中继续</view>
+
+
+  <view wx:if='{{phoneStatus==false}}'>
+    <view class='checkprice'>
+      <view class="{{checkStatus==index?'checkpricelist1':'checkpricelist'}}" wx:for='{{checkPrice}}' wx:key='index' data-index='{{index}}' bindtap='checklist'>
+        <view class='checkpricetitle fontStylexbg'>{{item.comboName}}</view>
+        <view class="{{checkStatus==index?'checkpriceNum':''}}  fontStylexbg">
+          <text>￥</text>
+          <text class='footSizePr'>{{item.priceYuan}}</text>
+        </view>
+        <view class='checkpriceDay'>{{item.remark}}</view>
+      </view>
+    </view>
+
+    <view class='subBtn-box priceBtn'>
+      <view class='subBtn' bindtap="{{payStatus?'pay':''}}">确认支付</view>
+    </view>
+
+  </view>
+
+
+</view>

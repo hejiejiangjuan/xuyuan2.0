@@ -1,0 +1,11 @@
+<image-cropper id="image-cropper" bindload="cropperload" bindimageload="loadimage"  limit_move="{{limit_move}}" disable_rotate="{{disable_rotate}}" width="{{width}}" height="{{height}}" imgSrc="{{src}}" angle="{{angle}}" disable_width="{{disable_width}}" max_width="{{max_width}}" max_height="{{max_height}}" disable_height="{{disable_height}}" disable_ratio="{{disable_ratio}}"
+
+>
+
+</image-cropper>
+ <view class="view-moadel">裁剪后图片尺寸为：375*200px</view>
+<view class='bottom'>
+ 
+  <button catchtap='clickcut'>完成</button>
+  
+</view>

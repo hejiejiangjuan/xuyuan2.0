@@ -1,0 +1,147 @@
+<!--pages/activeList/activeList.wxml-->
+<modal show="{{showModal}}" height='60%' bind:cofom="manaGement"></modal>
+<cu-custom bgColor="bg-white">
+  <view class="title-content" slot="content">活动</view>
+</cu-custom>
+
+<swiper class="screen-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+  <swiper-item wx:for="{{swiperList}}" wx:key id='{{index}}' bindtap='pageTo'>
+    <image src="{{item.imgAddr}}" mode="aspectFill"></image>
+  </swiper-item>
+</swiper>
+
+<view class='content-pd'>
+  <view class='whisContent' wx:for='{{activeList}}' wx:key='{{index}}' data-id='{{item.id}}' bindtap="detliaActive">
+    <view class='activeBg'>
+      <!-- 愿望列表 -->
+
+      <view class='wishList'>
+        <view class='detailbannr'>
+          <image mode="aspectFill" src='{{fileServer+item.themeAddr}}'></image>
+        </view>
+        <view class="detail-con-box ">
+          <view class='detail-con-title title-pad'>{{item.activityTheme}}</view>
+          <view class='detail-con-nike'>{{item.creativityExplain}}</view>
+          <view class='detail-con-tiem' wx:if='{{item.openPrizeCon == 1}}'>
+            <text>{{item.openDescribe}} 开奖</text>
+            <!-- <text>12:00</text>
+          <text>自动开奖</text> -->
+          </view>
+          <view class='detail-con-tiem' wx:if='{{item.openPrizeCon==2}}'>
+            <text>参与者达到{{item.openDescribe}}人开奖</text>
+          </view>
+          <view class='detail-con-tiem' wx:elif='{{item.openPrizeCon == 3}}'>
+            <text>发起人手动开奖</text>
+          </view>
+          <view class='wishContentd' wx:if='{{item.wishcardNum!=null&&item.wishcardNum>1}}'>
+            <view class='myIcon '>
+              <image src='../../imgs/icon/heart.png'></image>
+            </view>
+            <view class='wish-contd'>
+              <text>需要花费</text>
+              <text>{{item.wishcardNum}}</text>张心愿卡</view>
+          </view>
+          <view class='conditions'>
+            <view class="content conditions-con" wx:if='{{item.onlyFans==1 }}'>
+              <!-- item.wishCondition!=null || item.onlyFans==1 || item.wishCondition==2|| item.wishCondition==1}}|| -->
+              <text class=""></text>
+              <text wx:if='{{item.onlyFans==1}}'>仅公众号粉丝可参与</text>
+              <!-- <text wx:if='{{item.wishCondition==2}}'>限女性</text>
+            <text wx:if='{{item.wishCondition==1}}'>限男性</text>
+            <text wx:if='{{item.wishCondition==0}}'>不性</text> -->
+            </view>
+          </view>
+
+          <view class='userInfo-con'>
+            <view class='userInfo-img'>
+              <view class="cu-avatar  round " style="background-image:url({{item.logo}});"></view>
+            </view>
+            <view class='userInfo-name active-list-name'>
+              <view class='userInfoName '>
+                <view class='myName'>
+                  <view class='nickname'>{{item.miniName}}</view>
+                </view>
+              </view>
+              <view class='fromCtity'>
+                <view class='from-time'>{{item.beforeTime}}</view>
+              </view>
+            </view>
+            <view class='jion-btn' data-id='{{item.id}}' catchtap="detliaActive" wx:if='{{item.user_join_activity.length>0}}'>
+              <text>已参与</text>
+            </view>
+            <view class='jion-btn' wx:if='{{item.user_join_activity==null || item.user_join_activity.length==0}}' data-item='{{item}}' data-target="Modal" catchtap="detailActive">
+              <text>立即参加</text>
+            </view>
+
+          </view>
+        </view>
+
+
+      </view>
+
+
+    </view>
+  </view>
+</view>
+
+<view class='initiate-btn' bindtap='addactive'>
+  <text>发起活动</text>
+</view>
+<view class="cu-modal {{modalName=='Modal'?'show':''}} mymodal">
+  <view class="cu-dialog">
+    <view class="action deleIcon" bindtap="hideModal">
+      <text class="cuIcon-close text-grey"></text>
+    </view>
+    <view class="cu-bar  justify-end">
+      <view class="content wishTag-title">提示</view>
+    </view>
+
+    <view class="myInfo" wx:if="{{code==401}}">
+      <view class='myInfo-con fontStylexbg'>你不是公众号粉丝，不能参与该活动</view>
+      <view class='subBtn-box'>
+        <view class='subBtn-public' bindtap='subWish'>
+          <button class="buttonimg publicBtn-foot" open-type='contact' send-message-path='/pages/evenDetails/evenDetails?id={{activeDetal.id}}&kfType=attention' send-message-title="{{activeDetal.activityTheme}}" send-message-img="{{fileServer+activeDetal.themeAddr}}"
+            show-message-card="true">
+            关注公众号
+          </button>
+        </view>
+      </view>
+    </view>
+    <view wx:elif='{{code==403}}'>
+      <view class="padding-xl wishWarm">
+        <text>{{msg}}</text>
+        <!-- <text class="wisNum">{{wishCardNum}}</text>个 -->
+        <!-- <text class="wisNum">{{msg}}</text> -->
+      </view>
+      <view class="cu-bar  justify-center ">
+        <view class='subBtn-box giveCard'>
+          <view class='subBtn' bindtap='togive'>去购买心愿卡</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="myInfo" wx:else>
+      <view class='myInfo-con fontStylexbg'>{{msg}}</view>
+    </view>
+
+  </view>
+</view>
+<!-- <view class="cu-modal {{modalName=='giveModal'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">提示</view>
+      <view class="action" bindtap="hideModal">
+       
+      </view>
+    </view>
+    <view class="padding-xl">
+      <text>iOS系统用户请转到安卓系统购买</text>
+    </view>
+    <view class="cu-bar  justify-center">
+      <view class="action">
+        <button class="cu-btn line-pink margin-left" bindtap="hideModal">好的！</button>
+
+      </view>
+    </view>
+  </view>
+</view> -->

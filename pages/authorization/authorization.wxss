@@ -1,0 +1,82 @@
+/* pages/authorization/authorization.wxss */
+.admins{
+  background: white;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 40rpx 30rpx;
+  margin-bottom: 30rpx;
+}
+.adminsImg{
+  width: 120rpx;
+  height: 120rpx;
+  /* border: 1px solid black; */
+  border-radius: 50%;
+  overflow: hidden;
+}
+.adminsImg>image{
+   width: 120rpx;
+  height: 120rpx;
+}
+.adminTtle{
+  /* border: 1px solid black; */
+  height:100rpx;
+  line-height:100rpx;
+  color: #999999;
+  font-size: 32rpx;
+  padding: 0 30rpx;
+}
+.admins-content-t{
+  color: #333333;
+  font-size: 30rpx;
+  font-weight: bold;
+
+}
+.admins-content-p{
+  font-size: 30rpx;
+  color: #999999;
+}
+.admins-content{
+  margin-left: 30rpx;
+  /* border: 1px solid black; */
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* height:90rpx; */
+}
+.addAuth{
+  background: white;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 40rpx 0rpx;
+}
+.addAuth-icon{
+  /* border: 1px solid black; */
+  height: 80rpx;
+  width: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  font-size: 48rpx;
+  font-weight: bold;
+  color: rgb(0, 195, 255);
+  border-radius: 50%;
+  background: rgba(0, 183, 255, 0.301);
+}
+.addAuth-con{
+margin-left: 20rpx;
+font-size: 36rpx;
+font-weight: bold;
+color: rgb(0, 195, 255);
+}
+.mybtn{
+  border: none;
+  background: white;
+ 
+}
+.btnBg{
+   background: white;
+}
+button:after{
+border: none;
+}

@@ -1,0 +1,19 @@
+<!--pages/me-aboutUs/me-aboutUs.wxml-->
+<view class='cu-cuBg'>
+  <cu-custom  isBack="{{true}}">
+    <view slot="content">关于我们</view>
+  </cu-custom>
+</view>
+<view class='aboutUsPage'>
+
+<view class='about-banner'>
+  <image src='/imgs/pageImgs/about_bg.png'></image>
+  <view class='about-con'>
+    <view class='about-text fontStylexbg'>
+    {{usInfo.titleValue}}
+    </view>
+
+    <view class='version'>{{version.titleName}}:{{version.titleValue}}</view>
+  </view>
+</view>
+</view>

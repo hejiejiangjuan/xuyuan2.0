@@ -1,0 +1,28 @@
+<!--pages/problems/problems.wxml-->
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+  <view slot="content">常见问题</view>
+</cu-custom>
+<view class='pro-con'  wx:for='{{commonQuestion}}' wx:key='index'>
+  <view class='storyBehind'>
+    <view class='storyTitle'>
+      <view class='pro-title'>{{item.title}}</view>
+    </view>
+    <view class="{{item.openstatus?'storyConp':'storyCon2'}}">
+      {{item.content}}
+    </view>
+    <view class='storyFoot' >
+      <view class='openBtnp' bindtap='openBtn' data-index='{{index}}' wx:if='{{item.openstatus&&item.content.length>60}}'>
+        <text>展开全文</text>
+        <view class='myIcon'>
+          <image src='../../imgs/icon/xia.png'></image>
+        </view>
+      </view>
+      <view class='closeBtn'  data-index='{{index}}' bindtap='closeBtn' wx:if='{{!item.openstatus&&item.content.length>60}}'>
+        <text>收起全文</text>
+        <view class='myIcon'>
+          <image src='../../imgs/icon/xia.png'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

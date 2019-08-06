@@ -1,0 +1,60 @@
+<!--pages/vipCheck/vipCheck.wxml-->
+<cu-custom bgColor="bg-black" isBack="{{true}}">
+  <view slot="content">高级版</view>
+</cu-custom>
+<view class='vipbg'>
+
+  <view class='vip-bnner'>
+    <view class='vip-bnner-img'>
+      <image src='../../imgs/pageImgs/vip_bg_2@2x.png'></image>
+      <view class='vip-bnner-con'>
+        <view class='vip-bnner-text'>
+          <view class='vip-bnner-title'>高级版</view>
+          <view class='vip-bnner-text-con'>解锁更多功能，助力商家营销</view>
+          <view class='vip-bnner-text-num'>已有{{useNum}}人使用</view>
+        </view>
+        <!-- <view class='vip-bnner-con-img'>
+          <image src='http://img3.imgtn.bdimg.com/it/u=2260103776,438189083&fm=26&gp=0.jpg'></image>
+        </view> -->
+      </view>
+    </view>
+    <view class='vip-txt'>高级版包含以下功能</view>
+  </view>
+  <view class='checkFunction'>
+    <view class="checkBtn" wx:for='{{inviolable}}' wx:key='{{index}}'>
+      <view class="gouIcon">
+        <image src="/imgs/icon/gou.png"></image>
+      </view>
+      <label for='a'>
+        <text class="fontStylexSm magin-left">{{item.inviolableName}}</text>
+      </label>
+    </view>
+  </view>
+
+  <view class="promptBg" wx:if='{{phoneStatus}}'>
+      <view class="prompt">由于相关规范，iphone用户暂不可在小程序中继续</view>
+  </view>
+  <view wx:else>
+    <view class='vipprice'>
+      <view class='vipprice-title'>请选择购买高级版的次数</view>
+      <view class='vipCheckprice'>
+        <view class="{{checkStatus==index?'vipCheckpricelist1':'vipCheckpricelist'}}" wx:for='{{comboList}}' wx:key='index' data-index='{{index}}' data-prze='{{item.priceYuan}}' id="{{item.id}}" bindtap='checklist'>
+          <view class='vip-checkpricetitle fontStylexbg'>{{item.times}}次</view>
+          <view class="{{checkStatus==index?'checkpriceNum':''}}  fontStylexbg">
+            <text>￥</text>
+            <text class='vipfootSizePr'>{{item.priceYuan}}</text>
+          </view>
+          <view class='vip-checkpriceDay'>{{item.remark}}</view>
+        </view>
+      </view>
+    </view>
+
+    <view class='subBtn-box priceBtn'>
+      <view class='subBtn' bindtap="{{payStatus?'pay':''}}">确认支付</view>
+    </view>
+
+  </view>
+
+
+
+</view>

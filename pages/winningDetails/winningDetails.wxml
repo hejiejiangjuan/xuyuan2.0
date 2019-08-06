@@ -1,0 +1,40 @@
+<!--pages/winningDetails/winningDetails.wxml-->
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+  <view slot="content">中奖信息</view>
+</cu-custom>
+<view>
+  <view class="winnerInfo">
+    <view class="winnerInfo-time">
+      <text>请在规定时间内</text>
+      <text></text>
+      <text>填写收货信息，抽奖助手将发给发起人，超时则无法填写</text>
+    </view>
+    <view class="winnerInfo-con">应国家邮政总局要求，即日起涉及到个人快递包裹必须收件人实名制，否则将影响收寄配送。请避免使用【先生，男士，小姐，女士】等模糊称谓</view>
+  </view>
+  <view class="address">收货地址</view>
+
+  <view class="ddress-con">
+    <view class="address-info" bindtap="saveAddress" wx:if='{{addressStatus}}'>
+      <text wx:if='{{!userInfoAddress}}'>点击选择收获地址</text>
+      <text wx:else>{{userInfoAddress}}</text>
+      <text class="cuIcon-right"></text>
+    </view>
+
+
+  <view class="address-info" bindtap="addressType" wx:else>
+      <text wx:if='{{!userInfoAddress}}'>点击选择收获地址</text>
+      <text wx:else>{{userInfoAddress}}</text>
+      <text class="cuIcon-right"></text>
+    </view>
+
+
+    
+    <view class="address">备注</view>
+    <view class="cu-form-group ">
+      <textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="请输入内容"></textarea>
+    </view>
+  </view>
+  <view class='subBtn-box saveAddre'>
+    <view class='subBtn' bindtap='setAddress'>保存</view>
+  </view>
+</view>

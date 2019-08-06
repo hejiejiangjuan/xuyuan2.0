@@ -1,0 +1,57 @@
+/* pages/me-aboutUs/me-aboutUs.wxss */
+
+.cu-cuBg {
+  background: #1d1545;
+  color: white;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.aboutUsPage {
+  /* border: 1px solid black; */
+  padding-top: 110rpx;
+}
+
+.about-banner {
+  /* border: 1px solid black; */
+  position: relative;
+  width: 100%;
+  height: 420rpx;
+}
+
+.about-banner>image {
+  width: 100%;
+  height: 410rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.about-con {
+  position: absolute;
+  top: 335rpx;
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0 30rpx;
+}
+
+.about-text {
+  background: white;
+  border-radius: 10px;
+  padding: 50rpx;
+  line-height: 48rpx;
+  color: #333;
+  width: 100%;
+}
+
+.version {
+  font-size: 26rpx;
+  font-family: PingFang-SC-Medium;
+  color: #999;
+  width: 100%;
+  text-align: center;
+  margin: 60rpx 0;
+}

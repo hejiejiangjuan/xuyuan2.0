@@ -1,0 +1,69 @@
+/* pages/me-contact/me-contact.wxss */
+.concatPage{
+  padding: 50rpx 40rpx 150rpx 40rpx;
+}
+.servive{
+background: white;
+border-radius: 5px;
+padding: 50rpx 30rpx;
+}
+.servive-tile {
+  font-size: 44rpx;
+  font-family: PingFang-SC-Bold;
+  font-weight: bold;
+  
+}
+.serviveInfo{
+  display: flex;
+  justify-content: flex-start;
+  padding: 50rpx 0 0 0;
+}
+.serviveInfo-t{
+  color: #666666;
+  width: 30%
+
+}
+.serviveInfo-c{
+  color: #333333;
+   /* border: 1px solid black; */
+  width:60%;
+  margin-left: 5%;
+}
+.serviveInfo-b{
+  color: #333333;
+  border: 1px solid #eeee;
+  width: 100rpx;
+  text-align: center;
+  border-radius: 3px;
+  font-size:26rpx;
+
+}
+.opctye{
+  opacity: 0;
+}
+.wxCode{
+  background: white;
+  padding: 60rpx 80rpx;
+  margin-top: 30rpx;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.wxCode-img{
+  width: 300rpx;
+  height: 300rpx;
+  /* border: 1px solid black; */
+  position: relative;
+}
+.wxCode-img>image{
+ width: 300rpx;
+  height: 300rpx;
+  position: absolute;
+  top: 0;
+}
+.codeText{
+padding: 30rpx;
+color: #bbbbbb;
+}

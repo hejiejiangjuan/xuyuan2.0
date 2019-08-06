@@ -1,0 +1,107 @@
+<!--pages/wishFirst/wishFirst.wxml-->
+<cu-custom bgColor="bg-pink" isBack="{{true}}">
+  <view slot="backText"></view>
+  <view slot="content">我要上首页</view>
+</cu-custom>
+
+<view class='whisContent-box'>
+  <view class='whisContent whisContentMagin' wx:for="{{myWishDetailList}}" wx:key="{{index}}" wx:for-index="idx" >
+    <view class='userInfo'>
+      <view class='userInfo-con'>
+        <view class='userInfo-img'>
+          <view class="cu-avatar lg round " style="background-image:url({{item.imgAddr}});"></view>
+        </view>
+
+        <view class='userInfo-name'>
+          <view class='userInfoName'>
+            <view class='myName'>
+              <view class='nickname'>{{item.nickName}}</view>
+              <!-- <view class='level'>心愿达人</view>
+              <view>
+                <view class='myIcon'>
+                  <image src='../../imgs/icon/zz_05.png'></image>
+                </view>
+              </view> -->
+            </view>
+
+            <view class='city'>
+              <!-- <text class="cuIcon-locationfill lg text-gray"></text>成都 -->
+              <view class='myradiao' data-index="{{idx}}" bindtap='checkbox'>
+                <checkbox wx:if='{{item.checked}}' class="round pink" checked></checkbox>
+                <checkbox wx:else class="round "></checkbox>
+              </view>
+            </view>
+            <view>
+
+            </view>
+          </view>
+
+          <view class='fromCtity'>
+            <view class='from-time'>{{item.createDateStr}}</view>
+            <view class='from-city'  wx:if="{{item.activityName}}">
+              来自
+              <text>{{item.activityName}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+
+      <!-- 愿望列表 -->
+      <view class='wishList'>
+        <view class='wishContent' wx:for="{{item.wishListStr}}" wx:for-item="wishListStr" wx:key="{{wishListStr}}" >
+          <view class='myIcon wishIcon'>
+            <image src='{{fileServer+wishListStr.icon}}'></image>
+          </view>
+          <view class='wish-cont'>{{wishListStr.wishContent}}</view>
+        </view>
+      </view>
+    </view>
+    <view class='xuxian'></view>
+    <!-- 背后的故事 -->
+    <view class='storyBehind'>
+      <view class='storyTitle'>
+        <view class='myIcon'>
+          <!-- <image src='/imgs/icon/zz_05.png'></image> -->
+          <text class='cuIcon-text stryCol'></text>
+        </view>
+        <view class='story-title'>背后的故事</view>
+      </view>
+      <view class="{{item.flag?'storyCon':'storyCon2'}}">
+        {{item.story}}
+      </view>
+      <view class='storyFoot'>
+        <view class="openBtn {{item.story.length > 40 ? '' : 'hideBtn'}}" bindtap='openBtn' wx:if='{{item.flag}}' data-index="{{idx}}">
+          <text>展开全文</text>
+          <view class='myIcon'>
+            <!-- <image src='/imgs/icon/xia.png'></image> -->
+            <text class='cuIcon-unfold'></text>
+          </view>
+        </view>
+        <view class="closeBtn {{item.story.length > 40 ? '' : 'hideBtn'}}" bindtap='openBtn' wx:else data-index="{{idx}}">
+          <text>收起全文</text>
+          <view class='myIcon'>
+            <!-- <image src='../../imgs/icon/xia.png'></image> -->
+            <text class='cuIcon-fold'></text>
+          </view>
+        </view>
+        <!-- <view class='giveLike' bindtap='giveLike' wx:if='{{giveStatus}}'>
+          <view class='LikeIcon'>
+            <image src='/imgs/icon/light@2x.png'></image>
+          </view>
+          <text>点亮</text>
+        </view> -->
+        <view class='giveLike2' bindtap='giveLike' >
+          <view class='LikeIcon'>
+            <image src='/imgs/icon/light_hover.png'></image>
+          </view>
+          <text>{{item.supportNum}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  
+</view>
+<view class='subBtn-box wishBtn'>
+  <view class='subBtn' bindtap='nexttap'>下一步</view>
+</view>

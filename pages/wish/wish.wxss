@@ -1,0 +1,51 @@
+/* pages/wish/wish.wxss */
+
+/* 更改组件样式 */
+
+.tpyeBtn {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  /* border: 1px solid black; */
+  width: 50%;
+  color: #ff3c75;
+  font-family: PingFang-SC-Medium;
+}
+.tpyeBtn>text{
+  margin-left: 10rpx;
+}
+.wishTag-prz-list {
+  background: #f5f5f5;
+  margin: 10rpx;
+  width: 246rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  padding: 0 5rpx;
+  border-radius: 2px;
+}
+.wishTag-prz-list1 {
+  margin: 10rpx;
+  width: 246rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  padding: 0 5rpx;
+  border-radius: 2px;
+  border: 1px solid #ff3c75;
+  color: #ff3c75;
+}
+.wishTag-prz {
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  width: 92%;
+}
+
+
+
+
+
+
+
+
+

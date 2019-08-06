@@ -1,0 +1,49 @@
+<!--pages/authorization/authorization.wxml-->
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+  <!-- <view slot="backText">返回</view> -->
+  <view slot="content">授权申请</view>
+</cu-custom>
+<view class="adminTtle">选择已授权的公众号</view>
+
+<view class="admins" wx:for="{{authList}}" wx:for-item="item" wx:for-index="index" wx:key="index" data-item='{{item}}' bindtap="backePage">
+  <view class="adminsImg">
+    <image src='{{item.headImg}}'></image>
+  </view>
+  <view class="admins-content">
+    <view class="admins-content-t">{{item.nickName}}</view>
+    <!-- <view class="admins-content-p">测试1235管理员</view> -->
+  </view>
+</view>
+
+<view class="btnBg">
+  <button class="mybtn" bindtap="showModal" data-target="DialogModal1">
+    <view class="addAuth">
+      <view class="addAuth-icon">
+        <text class="cuIcon-add"></text>
+      </view>
+      <view class="addAuth-con">添加新授权</view>
+    </view>
+  </button>
+</view>
+<view class="cu-modal {{modalName=='DialogModal1'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">提示</view>
+      <view class="action" bindtap="hideModal">
+        <!-- <text class="cuIcon-close text-red"></text> -->
+      </view>
+    </view>
+    <view class="padding-xl">
+     已复制“公众号授权”至剪切板 
+     <text>\n点击确定并粘贴发送获取授权链接</text>
+     
+    </view>
+    <view class="cu-bar bg-white justify-center">
+      <view class="action">
+        <button class="cu-btn line-green text-pink" bindtap="hideModal">取消</button>
+        <button class="cu-btn bg-pink margin-left" open-type='contact'  bindtap="toCustomer">确定</button>
+
+      </view>
+    </view>
+  </view>
+</view>

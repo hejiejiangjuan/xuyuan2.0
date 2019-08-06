@@ -1,0 +1,240 @@
+/* pages/Me/Me.wxss */
+
+.meHead-box {
+  padding-top: 30rpx;
+  background: white;
+}
+
+.meHead {
+  /* border: 1px solid black; */
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0rpx 50rpx;
+}
+
+.usernickname {
+  /* border: 1rpx solid red; */
+}
+
+.nickname1 {
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.medal-box {
+  /* padding-left: 20rpx; */
+  /* border: 1rpx solid red; */
+  padding-top: 20rpx;
+}
+
+.medal1 {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  /* border: 1px solid black; */
+  position: relative;
+  padding: 2rpx 10rpx 5rpx 0rpx;
+  font-size: 24rpx;
+  width: 100%;
+}
+.medalX {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  /* border: 1px solid black; */
+  position: relative;
+  padding: 2rpx 10rpx 5rpx 30rpx;
+  font-size: 24rpx;
+  width: 100%;
+}
+
+.medalIcon {
+  width: 40rpx;
+  height: 50rpx;
+   position: absolute;
+  top: -1px;
+  left:0rpx; 
+  /* border: 1px solid black; */
+}
+
+.medalcon {
+  /* border: 1px solid black; */
+  /* width: 100%; */
+  padding: 0 10rpx 0 20rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  /* background: #c481d0; */
+  color: #522a8d;
+  border-radius:0 25px 25px 0;
+}
+.medalconNone {
+  /* border: 1px solid black; */
+  /* width: 100%; */
+  padding:5rpx 15rpx 15rpx 0;
+  height: 40rpx;
+  /* background: #c481d0; */
+  color: #522a8d;
+  border-radius: 25px;
+}
+
+.iconUser {
+  color: #ccc;
+}
+
+.rightIcon {
+  font-size: 20rpx;
+  line-height: 26rpx;
+}
+
+.medalIcon>image {
+  width: 40rpx;
+  height:50rpx;
+}
+
+.meNav {
+  /* border: 1px solid black; */
+  display: flex;
+  justify-content: space-between;
+  padding: 70rpx 50rpx 40rpx 50rpx;
+}
+
+.meNavlist {
+  /* border: 1px solid black; */
+}
+
+.meNav-num {
+  text-align: center;
+  font-size: 40rpx;
+  color: black;
+  font-weight: bold;
+}
+
+.meNav-title {
+  text-align: center;
+  color: #999;
+  font-size: 26rpx;
+  font-family: PingFang-SC-Medium;
+  margin: 10rpx;
+}
+
+.imgBtn {
+  /* border: 1px solid black; *//* padding-top: 20rpx; */
+  width: 100%;
+  position: relative;
+  padding: 0 50rpx;
+}
+
+.img-botton {
+  /* border: 1px solid black; */
+  height: 140rpx;
+  width: 100%;
+  border-radius: 20rpx 20rpx 0 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.img-botton>image {
+  height: 140rpx;
+  width: 100%;
+}
+
+.car-content {
+  height: 120rpx;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 100rpx;
+}
+
+.car-num {
+  color: white;
+  position: absolute;
+  top: 45rpx;
+  left: 100rpx;
+}
+
+.car-num>text:first-child {
+  font-size: 64rpx;
+}
+
+.car-num>text:last-child {
+  font-size: 26rpx;
+  margin: 15rpx;
+}
+
+.myCar {
+  color: white;
+  border: 1px solid #fff;
+  width: 100px;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  border-radius: 25px;
+  font-size: 26rpx;
+  position: absolute;
+  top: 50rpx;
+  right: 40rpx;
+}
+
+.myMenu {
+  /* border: 1px solid black; */
+  padding: 60rpx 10rpx 100rpx 15rpx;
+}
+
+.conIcon>text:first-child {
+  font-size: 40rpx;
+}
+
+.imgLogo {
+  /* border: 1px solid black; *//* margin-top: 40rpx; */
+}
+
+.mycuIcon-add {
+  border-radius: 50%;
+  /* border: 1px solid black; */
+}
+
+.bggrey {
+  background: rgba(168, 167, 167, 0.103);
+}
+
+.imgBox {
+  display: flex;
+  justify-content: center;
+  /* border: 1px solid black; */
+  height: 200rpx;
+}
+
+.usrserImg {
+  width: 180rpx;
+  height: 180rpx;
+  overflow: hidden;
+  /* border: 1px solid black; */
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.usrserImg>image {
+  width: 180rpx;
+  height: 180rpx;
+  position: absolute;
+  top:0;
+  left: 0;
+  
+}
+
+.myadd {
+  /* border: 1px solid black; */
+  position: absolute;
+  color: white;
+}

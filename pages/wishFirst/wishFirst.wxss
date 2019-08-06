@@ -1,0 +1,17 @@
+/* pages/wishFirst/wishFirst.wxss */
+.whisContent-box{
+ padding: 0 40rpx 200rpx 40rpx;
+}
+.whisContentMagin{
+  margin-top: 40rpx;
+}
+.hideBtn {
+  opacity: 0
+}
+.wishBtn{
+  /* border: 1px solid black; */
+  position: fixed;
+  bottom: 110rpx;
+  width: 100%;
+  padding: 0 60rpx;
+}
